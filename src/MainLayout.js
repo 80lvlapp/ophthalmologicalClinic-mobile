@@ -23,7 +23,7 @@ import { PhotoGrid } from './screens/PhotoGrid';
 import { Tags } from './screens/Tags';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-
+//
 export const MainLayout = () => {
 
     const [status, setStatus] = React.useState('loading');
