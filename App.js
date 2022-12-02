@@ -5,8 +5,6 @@ import { ReceptionState } from './src/context/reception/ReceptionState'
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {Footer} from './src/components/Footer'
 
-
-
 export default function App() {
   return (
     <AppState>

@@ -4,11 +4,12 @@ import React, { useState, useEffect, useContext, useCallback, useRef } from 'rea
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Vibration, StatusBar } from 'react-native';
 import { Image } from 'react-native-elements';
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {
-    Camera,
-    useCameraDevices,
-    useFrameProcessor,
-} from 'react-native-vision-camera';
+//import {
+//Camera,
+//useCameraDevices,
+//  useFrameProcessor,
+//} from 'react-native-vision-camera';
+
 import { CaptureButton } from './ui/CaptureButton';
 // import Reanimated, { } from 'react-native-reanimated';
 import { TapGestureHandler } from 'react-native-gesture-handler';
@@ -21,6 +22,8 @@ import uuid from 'react-native-uuid';
 import Orientation from 'react-native-orientation-locker';
 
 export const AppCamera = ({ route, navigation }) => {
+
+    /*
 
     const { setPhoto, arrayCameraPhoto, setFild } = useContext(ReceptionContext);
 
@@ -159,11 +162,12 @@ export const AppCamera = ({ route, navigation }) => {
     if (device == null) return <View />
 
     // const supportsFlash = device?.hasFlash ?? false;
+        */
 
     return (
         <View style={{ flex: 1 }}>
-            <StatusBar hidden />
-            {/* <Reanimated.View style={StyleSheet.absoluteFill}> */}
+            {/*
+          
             <TapGestureHandler onHandlerStateChange={({ nativeEvent }) => {
 
                 if (device?.supportsFocus) {
@@ -186,7 +190,7 @@ export const AppCamera = ({ route, navigation }) => {
 
                 </Camera>
             </TapGestureHandler>
-            {/* </Reanimated.View> */}
+        
 
             <CaptureButton
                 style={currentOrientation === "PORTRAIT" || !currentOrientation ? styles.captureButton : styles.captureButtonLandscape}
@@ -245,6 +249,7 @@ export const AppCamera = ({ route, navigation }) => {
                 </View>
             ) : null}
 
+                */}
 
         </View>
     )

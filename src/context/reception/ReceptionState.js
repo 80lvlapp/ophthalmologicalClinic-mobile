@@ -53,10 +53,10 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import moment from 'moment';
-import PhotoEditor from 'react-native-photo-editor';
+//import PhotoEditor from 'react-native-photo-editor';
 import RNFS from 'react-native-fs';
 import uuid from 'react-native-uuid';
-import Share from 'react-native-share';
+//import Share from 'react-native-share';
 import { min } from 'date-fns';
 
 export const ReceptionState = ({ children }) => {
@@ -444,7 +444,7 @@ export const ReceptionState = ({ children }) => {
     }
 
     const EditPhoto = async (imageItem) => {
-
+/*
         dispatch({ type: DOWNLOAD_EDIPHOTO_REQUEST });
 
         const fileName = uuid.v4();
@@ -488,10 +488,11 @@ export const ReceptionState = ({ children }) => {
         } catch (error) {
             dispatch({ type: DOWNLOAD_EDIPHOTO_FAILURE, payload: error.toString() });
         }
-
+        */
     }
 
     const sharePhoto = async (imageItems) => {
+        /*
 
         dispatch({ type: SHARE_EDIPHOTO_REQUEST });
 
@@ -535,6 +536,7 @@ export const ReceptionState = ({ children }) => {
                 dispatch({ type: SHARE_EDIPHOTO_FAILURE, payload: error.toString() });
             }
         }
+        */
     }
 
     const uploadPhoto = async (currentPhoto, endhandler = null, successHandler = null) => {

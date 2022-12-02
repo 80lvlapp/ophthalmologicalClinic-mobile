@@ -12,7 +12,8 @@ import axios from 'axios';
 export const ChangeApiUrl = ({ navigation }) => {
 
     //const [apiUrlLocal, setapiUrlLocal] = useState('https://webpub.isvs1c.ru/medicine_polyclinic_sbyhalo/hs/mobappdoctorsworkplace');
-    const [apiUrlLocal, setapiUrlLocal] = useState('https://ps.angiosochi.ru:5789/lvlApp/hs/mobappdoctorsworkplace');
+    const [apiUrlLocal, setapiUrlLocal] = useState('https://sportsrating.ru:444/lvlapp/hs/mobappdoctorsworkplace');
+
     //const [apiUrlLocal, setapiUrlLocal] = useState('https://ps.angiosochi.ru:5788/lvlApp/hs/mobappdoctorsworkplace');
 
     const [loading, setLoading] = useState(false);
