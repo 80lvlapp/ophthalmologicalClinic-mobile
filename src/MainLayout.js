@@ -10,6 +10,8 @@ import { Html } from './screens/Html';
 import { Gallery } from './screens/Gallery';
 import { ChangeApiUrl } from './screens/ChangeApiUrl';
 import {PatientList} from './screens/searchPatient/PatientList'
+import {MedicalDocument} from './screens/MedicalDocument'
+
 
 import { PatientService } from './screens/PatientService';
 import { PhotoSelection } from './screens/PhotoSelection';
@@ -111,7 +113,7 @@ export const MainLayout = () => {
                 <Stack.Screen name="ChangeApiUrl" component={ChangeApiUrl} options={{ headerShown: false }} />
                 <Stack.Screen name="Tags" component={Tags} />
                 <Stack.Screen name="PatientList" component={PatientList} />
-
+                <Stack.Screen name="MedicalDocument" component={MedicalDocument} />
 
             </Stack.Navigator>}
         </NavigationContainer>

@@ -4,14 +4,13 @@ import { ListItem, SearchBar, CheckBox, Divider, Button } from 'react-native-ele
 import { ReceptionContext } from '../context/reception/ReceptionContext';
 import { EmptyListMessage } from '../components/EmptyListMessage';
 import { THEME } from '../themes';
-import { Picker } from '@react-native-picker/picker';
 import { AppInputDate } from '../components/ui/AppInputDate';
 import moment from 'moment';
-import { AppLoaderSmall } from '../components/ui/AppLoaderSmall';
 import { TextError } from '../components/TextError';
 import Icon from 'react-native-vector-icons/AntDesign';
 import IconFontisto from 'react-native-vector-icons/Fontisto';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+
 
 export const Main = ({ navigation, route }) => {
 
@@ -44,16 +43,14 @@ export const Main = ({ navigation, route }) => {
 		hendlerGetDoctorsSchedule();
 	}, [date]);
 
-	//|| (fDoctor==item.employee.guid)
-
 	const useFilter = (item) => {
-		
-		   const nameMatches = (!fNamePatient || item.presentationPatient.trim().toLowerCase().includes(fNamePatient.trim().toLowerCase()));
-			if (fOperating) {
-				return nameMatches && item.operating; 
-			} else {
-				return nameMatches && (fDoctor==item.employee.guid ||  fDoctor=='all');
-			}							
+
+		const nameMatches = (!fNamePatient || item.presentationPatient.trim().toLowerCase().includes(fNamePatient.trim().toLowerCase()));
+		if (fOperating) {
+			return nameMatches && item.operating;
+		} else {
+			return nameMatches && (fDoctor == item.employee.guid || fDoctor == 'all');
+		}
 	}
 
 	const hendlerGetDoctorsSchedule = () => {
@@ -78,13 +75,11 @@ export const Main = ({ navigation, route }) => {
 		});
 	}, [route]);
 
-	//visitRegistered
-
 	const onPressScheduleItem = (item) => {
 
 		if (item.medicalCard.guid === "") {
 
-			Alert.alert("Внимание", "Карта пациента не зарегистрирована\n\n" + "Комментарий: " + item.comment   );
+			Alert.alert("Внимание", "Карта пациента не зарегистрирована\n\n" + "Комментарий: " + item.comment);
 			return;
 		}
 
@@ -92,68 +87,6 @@ export const Main = ({ navigation, route }) => {
 
 	}
 
-
-	// const renderItem = ({ item }) => (
-
-	// 	<ListItem.Swipeable key={item.guid}
-	// 		leftContent={		
-	// 			item.service.guidService != ''?	<Button
-	// 				icon={{ name: 'camera', color: "white", size: 30 }}
-	// 				buttonStyle={{ minHeight: '100%' }}
-	// 				onPress={() => {
-
-	// 					if (item.medicalCard.guid === "") {
-	// 						Alert.alert("Внимание", "Карта пациента не зарегестрирована");
-	// 						return;
-	// 					}
-
-	// 					setFild("currentService", item.service);
-	// 					setFild("currentPatient", item.patient);
-
-	// 					navigation.navigate('AppCamera');
-	// 				}
-
-	// 				}
-	// 			/>:<></>
-	// 		}
-
-	// 		rightContent={
-	// 			<Button
-
-	// 				icon={{ name: 'info', color: "white", size: 30 }}
-	// 				buttonStyle={{ minHeight: '100%' }}
-	// 				onPress={() => {
-	// 					onPressScheduleItem(item);
-	// 				}
-	// 				}
-	// 			/>
-	// 		}
-
-	// 		onLongPress={() => { onPressScheduleItem(item) }}
-	// 	>
-	// 		{item.visitRegistered && <IconFontisto
-	// 			name={"check"}
-	// 			size={20}
-	// 			color={"green"}
-	// 		/>}
-
-	// 		<ListItem.Content>
-
-	// 			<ListItem.Title  >
-	// 				{item.timeOfReceipt} {item.presentationPatient}
-	// 			</ListItem.Title>
-
-	// 			<ListItem.Subtitle style={{ fontSize: 10, fontFamily: 'Roboto', fontWeight: "bold" }}>
-	// 				{item.nomenclature.name}
-	// 			</ListItem.Subtitle>
-	// 		</ListItem.Content>
-
-
-	// 		<ListItem.Chevron />
-
-
-	// 	</ListItem.Swipeable>
-	// );
 
 
 	let rowSwipeable = [];
@@ -166,10 +99,10 @@ export const Main = ({ navigation, route }) => {
 	const getBackgroundStyle = (item) => {
 
 		if (!item.medicalCard.guid) {
-			return {backgroundColor: "#DADADA"};
+			return { backgroundColor: "#DADADA" };
 		} if (item.serviceCompleted === true) {
-			return {backgroundColor: "#e2f0e1"};
-		}else{
+			return { backgroundColor: "#e2f0e1" };
+		} else {
 			return {};
 		}
 
@@ -187,13 +120,6 @@ export const Main = ({ navigation, route }) => {
 						alignItems: 'center',
 						flex: 1
 					}}>
-						{/* <Text style={{
-						textAlign: 'center',
-						color: 'white',
-						fontWeight: 'bold',
-						left: 10
-					}}>Камера</Text> */}
-
 						<Button
 							icon={{ name: 'camera', color: "white", backgroundColor: 'green', size: 30 }}
 							buttonStyle={{ minHeight: '100%', backgroundColor: 'green' }} />
@@ -221,10 +147,10 @@ export const Main = ({ navigation, route }) => {
 
 			}}
 		>
-			<ListItem key={item.guid} onPress={() => { onPressScheduleItem(item) }} 
-			bottomDivider 
-			topDivider 
-			containerStyle = {getBackgroundStyle(item)}>
+			<ListItem key={item.guid} onPress={() => { onPressScheduleItem(item) }}
+				bottomDivider
+				topDivider
+				containerStyle={getBackgroundStyle(item)}>
 
 				{item.visitRegistered && <IconFontisto
 					name={"check"}
@@ -257,7 +183,6 @@ export const Main = ({ navigation, route }) => {
 					title='Операционная'
 					checked={fOperating}
 					onPress={() => setFild("fOperating", !fOperating)}
-					//	containerStyle={{ backgroundColor: "white" }}
 					containerStyle={{
 						backgroundColor: "white", borderWidth: 0, margin: 0, padding: 0
 					}}
@@ -266,12 +191,12 @@ export const Main = ({ navigation, route }) => {
 
 					textStyle={{
 						fontSize: 10,
-						//color: '#9c9c9c',
-						//	marginLeft: 2,
 						margin: 0, padding: 0, marginLeft: 0, marginRight: 0,
 						fontWeight: "normal"
 					}}
 				/>
+
+				<Button title="Медицинский документ" onPress={()=>{navigation.navigate('MedicalDocument')}}/>
 
 
 
@@ -315,14 +240,10 @@ const styles = StyleSheet.create(
 	{
 		titleStyle: {
 			fontSize: 12,
-			//color: '#9c9c9c',
 			marginLeft: 10,
 			fontWeight: "normal"
 		},
 		periodSelection: {
-			//alignItems: "center",
-			//justifyContent: 'center',
-			//flexDirection: 'row',
 			marginTop: 50,
 		},
 	}
