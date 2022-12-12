@@ -43,7 +43,6 @@ export const PhotoGrid = ({ navigation, route }) => {
 
   const onLayout = useCallback((e) => {
 
-    //const windowHeight = Dimensions.get('window').height;
     const height = e.nativeEvent.layout.height
 
     setItemHeight(height)
@@ -51,9 +50,6 @@ export const PhotoGrid = ({ navigation, route }) => {
 
   const renderItem = useCallback(
     ({ item, index }) => {
-
-      // let resp = getTestConnection();
-
       let content = <ImageGridItem index={index} id={item.uri} ImageComponent={ImageComponent} sourceImg={item} />
       return content;
     },
@@ -234,7 +230,6 @@ export const PhotoGrid = ({ navigation, route }) => {
 
 
       <TouchableOpacity
-        //  style={{ flex: 0.33}}
         onPress={() => {
 
           const newPatientGallery = patientGallery.map(element => { return { ...element, select: true } });
@@ -251,9 +246,7 @@ export const PhotoGrid = ({ navigation, route }) => {
 
 
       <TouchableOpacity
-        //  style={{ flex: 0.33}}
         onPress={() => {
-
           const newPatientGallery = patientGallery.map(element => { return { ...element, select: false } });
           setFild("patientGallery", newPatientGallery);
 
@@ -308,19 +301,19 @@ export const PhotoGrid = ({ navigation, route }) => {
           if (typesGallery === "PatientFavoritesGallery") {
 
             changeFavorite(patientGallery.filter(item => item.select), false);
-          
+
           } else {
 
             Alert.alert(
               "Очистить галерею до и после?",
               "",
               [
-                  {
-                      text: "Отмена",
-                      style: "cancel"
-                  },
+                {
+                  text: "Отмена",
+                  style: "cancel"
+                },
 
-                  { text: "OK", onPress: () =>  changeFavoritePhotoGrid([], false) }
+                { text: "OK", onPress: () => changeFavoritePhotoGrid([], false) }
 
               ]);
           }
@@ -328,7 +321,7 @@ export const PhotoGrid = ({ navigation, route }) => {
 
         <AntDesignIcon
 
-          name= {typesGallery === "PatientFavoritesGallery" ? "staro" : "delete"}
+          name={typesGallery === "PatientFavoritesGallery" ? "staro" : "delete"}
           size={25}
           color={"white"}
         />

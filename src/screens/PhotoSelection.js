@@ -11,24 +11,13 @@ export const PhotoSelection = ({ navigation, route }) => {
 
     const { arrayCameraPhoto, setPhoto, setFild } = useContext(ReceptionContext);
 
-
-    // useEffect(() => {
-    //     Orientation.unlockAllOrientations();  
-    // }, []);
-
     const okOnPress = () => {
         setPhoto(arrayCameraPhoto);
-        //navigation.goBack(2);
-
         navigation.pop(2);
-        //navigation.navigate('PatientService');
     }
 
     const cancelOnPress = () => {
         navigation.pop(2);
-        
-        //navigation.goBack(2);
-        //navigation.navigate('PatientService');
     }
 
     const removePhoto = (item) => {
@@ -36,7 +25,6 @@ export const PhotoSelection = ({ navigation, route }) => {
         const newArray = arrayCameraPhoto.filter((photo) => (photo.idFile != item.idFile));
 
         setFild("arrayCameraPhoto", newArray);
-        // console.log(item);
 
     }
 
@@ -54,8 +42,6 @@ export const PhotoSelection = ({ navigation, route }) => {
                 <Image source={{ uri: 'file://' + item.filepath }}
                     PlaceholderContent={<ActivityIndicator />}
                     style={{
-                        // borderColor: THEME.MAIN_COLOR,
-                        // resizeMode: 'contain',
                         margin: 8,
                         width: Dimensions.get('window').width - 20,
                         height: 400
@@ -70,8 +56,6 @@ export const PhotoSelection = ({ navigation, route }) => {
 
         <View style={{
             flex: 1,
-            // justifyContent: 'center',
-            // alignItems: 'center',
         }}>
 
             <FlatList

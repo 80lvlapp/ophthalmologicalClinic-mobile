@@ -35,14 +35,6 @@ export const PatientService = ({ navigation, route }) => {
 
     }, []);
 
-    // useFocusEffect(
-    //     React.useCallback(() => {
-
-    //         Orientation.unlockAllOrientations();
-
-    //     }, [])
-
-    // );
 
     const loadFoto = arrayPhoto.find(item => item.guidServiceRef == currentService.service.guid) != undefined;
 
@@ -69,11 +61,9 @@ export const PatientService = ({ navigation, route }) => {
 
             title: 'Select Image',
             mediaType: 'photo',
-            // includeBase64: true,
             selectionLimit: 0,
 
-        }, (response) => { // Use launchCamera to open camera
-            // console.log('Response = ', response);
+        }, (response) => { 
 
             if (response.didCancel) {
                 console.log('User cancelled image picker');
@@ -93,8 +83,6 @@ export const PatientService = ({ navigation, route }) => {
                         filepath: itiem.uri.replace('file://', '')
                     }
                 }))
-
-                // navigation.navigate("PatientService");
             }
         });
 
@@ -175,7 +163,6 @@ export const PatientService = ({ navigation, route }) => {
 
                     }}
                     containerStyle={{
-                        //2 width: 300,
                         marginVertical: 5,
                     }}
                     onPress={() => saveComent(navigation)}
@@ -228,36 +215,11 @@ export const PatientService = ({ navigation, route }) => {
                         marginTop: 10
                     }}
                     containerStyle={{
-                        //2 width: 300,
                         marginVertical: 5,
                     }}
                     onPress={() => captureImage('photo')}
                     title = " Сделать фото" />
 
-
-
-                {/* <View style={{ flexDirection: 'row', width: "100%", marginTop: 10, justifyContent: "center" }}>
-                    <TouchableOpacity >
-                        <Icon name='camera' onPress={() => captureImage('photo')} size={150} color={THEME.MAIN_COLOR} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 0.2 }}>
-                        <Icon name='image' onPress={() => chooseFile('photo')} size={50} color={THEME.MAIN_COLOR} />
-                    </TouchableOpacity>
-                </View> */}
-
-                {/* <Swipeable
-                    renderLeftActions={() => <View><Text>Тест</Text></View>}
-                    onSwipeableOpen = {()=> console.log("Произошел свайп")}
-                    >
-                        
-                    <ListItem key={"1"} bottomDivider onPress={()=> console.log("on press")}>
-                        <ListItem.Content>
-                            <ListItem.Title>Заголовок</ListItem.Title>
-                            <ListItem.Subtitle>Текст</ListItem.Subtitle>
-                        </ListItem.Content>
-                        <ListItem.Chevron />
-                    </ListItem>
-                </Swipeable> */}
 
             </View>
 
