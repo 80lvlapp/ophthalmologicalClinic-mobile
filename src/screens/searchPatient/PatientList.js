@@ -25,8 +25,6 @@ export const PatientList = ({ navigation, route}) => {
   }, []);
 
   const selectPatient = (item) => {
-    //setFildMeasurementProtocol('laboratory', item);
-    //navigation.navigate("MeasurementProtocol");
     openPatient(item.patient, item.medicalCard, navigation)
 }
  

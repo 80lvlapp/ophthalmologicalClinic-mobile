@@ -3,8 +3,6 @@ import React from 'react';
 import {
   StyleSheet,
 } from 'react-native';
-import { AppButton } from '../../components/ui/AppButton';
-//import DefaultText from './DefaultText';
 
 const PatientItem = props => {
   return (

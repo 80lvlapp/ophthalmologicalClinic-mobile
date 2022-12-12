@@ -28,11 +28,6 @@ export const Patient = ({ navigation, route }) => {
 		});
 	}, [route]);
 
-	useEffect(() => {
-		//	getServices(currentPatient.guid);
-	}, []);
-
-
 	const renderItem = ({ item }) => (
 		<ListItem key={item.number} bottomDivider topDivider onPress={() => {
 			openService(item, navigation)

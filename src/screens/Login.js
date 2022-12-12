@@ -6,10 +6,7 @@ import { THEME } from '../themes';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import start from '../assets/start.png';
 import { TextError } from '../components/TextError';
-import { AppLoader } from '../components/ui/AppLoader';
-import { color } from 'react-native-reanimated';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
-
 export const Login = ({ navigation, route }) => {
 
     const [username, setUsername] = useState('');
@@ -43,7 +40,6 @@ export const Login = ({ navigation, route }) => {
 
                     value={username}
                     onChangeText={username => setUsername(username)}
-                    // label='Имя пользователя'
                     placeholder="Имя пользователя"
                     inputStyle={styles.input}
                     containerStyle={styles.containerStyle}
@@ -62,7 +58,6 @@ export const Login = ({ navigation, route }) => {
                 <Input
                     value={password}
                     onChangeText={password => setPassword(password)}
-                    //label='Пароль'
                     labelStyle={styles.labelStyle}
                     secureTextEntry={true}
                     containerStyle={styles.containerStyle}
@@ -82,15 +77,10 @@ export const Login = ({ navigation, route }) => {
                     onPress={() => executLogin(username, password)}
                     disabled={authenticatedRequest}
                     title={"Войти"}
-
                     buttonStyle={{
-
-
                         width: 200,
-
                         marginTop: 10,
                         backgroundColor: THEME.BUTTON_COLOR
-                        //  marginBottom: 10
                     }}
 
                 />
@@ -113,7 +103,6 @@ const styles = StyleSheet.create({
     containerStyle: {
 
         color: THEME.MAIN_COLOR,
-        //borderColor: THEME.MAIN_COLOR,
         borderColor: THEME.MAIN_COLOR,
         borderBottomColor: THEME.MAIN_COLOR,
     },
@@ -136,7 +125,6 @@ const styles = StyleSheet.create({
 
         color: THEME.MAIN_COLOR,
         borderColor: THEME.MAIN_COLOR,
-        //borderColor: THEME.MAIN_COLOR,
         borderColor: THEME.MAIN_COLOR,
         borderBottomColor: THEME.MAIN_COLOR,
     },

@@ -148,7 +148,6 @@ export const Gallery = ({ navigation, route }) => {
         {viewMetadata && <View style={{ width: '100%', height: 215 }}>
           <Card>
             <View style={{ flexDirection: 'row' }}>
-              {/* <Card.Title style={{ textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', marginRight: 20 }}>Метаданные</Card.Title> */}
               <Text>
                 {itemImage.metadata}
               </Text>

@@ -115,7 +115,6 @@ const styles = StyleSheet.create(
       padding: 4,
       flexDirection: 'column',
       alignContent: "center",
-      //  alignItems: 'center',
       justifyContent: 'center'
     },
     textStyle: {
