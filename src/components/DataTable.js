@@ -1,94 +1,89 @@
 import React from "react";
-import { View, StyleSheet, TextInput, Text } from "react-native";
+import { View, StyleSheet, TextInput, Text, } from "react-native";
 
-const DataTable = ({ tableHead, tableRowsData, onChangeTextCell }) => {
+const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth }) => {
 
   return (
-    <View style={styles.table}>
-      <View style={styles.row}>
-        {tableHead.map((item, index) =>
-          <View key={item} style={[styles.cell, styles.bigText]}>
-            <Text style={[styles.bigText]}>{item}</Text>
-          </View>
+
+    <View style={styles.tableСontainer}>
+      <View style={[styles.table, {width: TableWidth }]}>
+
+
+
+        {tableRowsData && tableRowsData.map((itemTableRowsData, y) => <View key={y.toString()} style={styles.row}>
+          {itemTableRowsData.map((cellData, x) =>
+          (<View
+            key={x.toString() + "_" + y.toString()}
+            style={[styles.cellData, {flex: cellData.colspan, padding: cellData.padding}]}
+          >
+            {cellData.type == "input" && <TextInput
+              value={cellData.value}
+              style={[styles.textInput, {textAlign: cellData.textAlign}]}
+              keyboardType='numeric'
+              autoComplete={'cc-number'}
+              onChangeText={(newValue) => onChangeTextCell(y, x, newValue)}
+            />}
+
+            {cellData.type == "text" &&
+              <Text style={[styles.text, cellData.bold ? styles.boldText : null,
+              {
+                color: cellData.color,
+                textAlign: cellData.textAlign,
+                textAlignVertical: cellData.textAlignVertical,
+                fontWeight: cellData.fontWeight
+              }]}>
+                {cellData.value}
+              </Text>
+            }
+
+          </View>)
+          )}
+        </View>
         )}
       </View>
-      {tableRowsData && tableRowsData.map((itemTableRowsData, y) => <View key={y.toString()} style={styles.row}>
-        {itemTableRowsData.map((cellData, x) =>
-        (<View
-          key={x.toString() + "_" + y.toString()}
-          style={[styles.cellData]}
-        >
-          {cellData.type == "input" && <TextInput
-            value={cellData.value}
-            style={styles.textInput}
-            onChangeText={(newValue) => onChangeTextCell(y, x, newValue)}
-          />}
-
-          {cellData.type == "text" && <Text style={[styles.text, styles.bigText]}>
-            {cellData.value}
-          </Text>
-          }
-
-        </View>)
-        )}
-      </View>
-      )}
     </View>
   );
 };
 
 
 const styles = StyleSheet.create({
-  row: {
-    height: 50,
-    flexDirection: 'row',
-    width: "100%",
-  },
-
   table: {
     padding: 5,
     flexDirection: 'column',
-
+    alignItems: 'center'
   },
-  cell: {
+
+  tableСontainer: {
+    width: "100%",
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+
+  row: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    width: "100%",
     alignItems: 'center',
-    flex: 1,
+    justifyContent: 'center',
   },
-
-
-  bigText: {
-    fontSize: 13,
-    color: 'black',
-    fontWeight: 'bold' 
-    },
 
   cellData: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 1,
-    borderStyle: 'solid',
-    padding: 3
-  },
-
-  borderRight: {
-    // borderRightWidth: 1 
+    width: "100%"
   },
 
   textInput: {
     width: "100%",
     height: "100%",
-    borderWidth: 1,
-    color: 'black'
+    borderWidth: 0.5,
+    color: 'black',
+    fontSize: 20,
+    borderRadius:3,
   },
 
   text: {
-    width: "100%",
-    height: "100%",
-    borderWidth: 0,
-    color: 'black'
+    width: "100%"
   }
 
 })
