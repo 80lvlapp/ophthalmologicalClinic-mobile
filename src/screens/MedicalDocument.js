@@ -11,7 +11,19 @@ export const MedicalDocument = () => {
     const tableHead = ['Заголовок 1', 'Заголовок 2', 'Заголовок 3']
     const [tableRowsData, setTableRowsData] = React.useState([
         [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }], 
-        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }]
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }],
+        
     ]);
     
     const onChangeTextCell = (y, x, newValue) => {
