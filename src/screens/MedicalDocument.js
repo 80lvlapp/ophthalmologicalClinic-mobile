@@ -8,10 +8,17 @@ import DataTable from './../components/DataTable'
 export const MedicalDocument = () => {
 
     const [selectedIndex, setSelectedIndex] = React.useState(0);
-    const tableHead = ['Заголовок 1', 'Заголовок 2', 'Заголовок 3']
+   
+    const tableHead = ['', 'sph', 'cyl', 'axº', 'vls']
     const [tableRowsData, setTableRowsData] = React.useState([
-        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }], 
-        [{ value: "1", type: 'string' },{ value: "2", type: 'string' },{ value: "3", type: 'string' }]
+        [{ value: "д/дал PD= мм", type: 'text'}, { value: "1", type: 'input' },{ value: "2", type: 'input' },{ value: "3", type: 'input' }, { value: "3", type: 'input' }], 
+        [{ value: "OD", type: 'text'}, { value: "1", type: 'input' },{ value: "2", type: 'input' },{ value: "3", type: 'input' }, { value: "3", type: 'input' }],
+        [{ value: "OS", type: 'text'}, { value: "1", type: 'input' },{ value: "2", type: 'input' },{ value: "3", type: 'input' }, { value: "3", type: 'input' }],
+        [{ value: "д/бл PD=мм", type: 'text' }, { value: "1", type: 'input' },{ value: "2", type: 'input' },{ value: "3", type: 'input' }, { value: "3", type: 'input' }],
+        [{ value: "OD", type: 'text' }, { value: "1", type: 'input' },{ value: "2", type: 'input' },{ value: "3", type: 'input' }, { value: "3", type: 'input' }],
+        [{ value: "OS", type: 'text' }, { value: "1", type: 'input' },{ value: "2", type: 'input' },{ value: "3", type: 'input' }, { value: "", type: '' }],
+        [{ value: "Монофокальные / Бифокальные / PAL / add D", type: 'text' }, { value: "1", type: 'input' },{ value: "2", type: 'input' },{ value: "3", type: 'input' }, { value: "2", type: 'input' }],
+          
     ]);
     
     const onChangeTextCell = (y, x, newValue) => {
@@ -31,7 +38,7 @@ export const MedicalDocument = () => {
     return (
         <View style={{ flex: 1, backgroundColor: "white", padding: 2 }}>
             <ButtonGroup
-                buttons={['SIMPLE', 'BUTTON', 'GROUP']}
+                buttons={['Очки пациента', 'Кератометрия', 'Определение фории']}
                 selectedIndex={selectedIndex}
                 onPress={(value) => {
                     setSelectedIndex(value);
