@@ -1,38 +1,40 @@
 import React from "react";
 import { View, StyleSheet, TextInput, Text, } from "react-native";
 
-const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth }) => {
+const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth, tableValue }) => {
 
   return (
 
     <View style={styles.tableСontainer}>
-      <View style={[styles.table, {width: TableWidth }]}>
-
-
-
+      <View style={[styles.table, { width: TableWidth }]}>
         {tableRowsData && tableRowsData.map((itemTableRowsData, y) => <View key={y.toString()} style={styles.row}>
           {itemTableRowsData.map((cellData, x) =>
           (<View
             key={x.toString() + "_" + y.toString()}
-            style={[styles.cellData, {flex: cellData.colspan, padding: cellData.padding}]}
+            style={[styles.cellData, { flex: cellData.colspan, padding: cellData.padding }]}
           >
             {cellData.type == "input" && <TextInput
-              value={cellData.value}
-              style={[styles.textInput, {textAlign: cellData.textAlign}]}
+              value={tableValue[cellData.Field]}
+              style={[styles.textInput, { 
+                color: cellData.color,
+                textAlign: cellData.textAlign,
+                textAlignVertical: cellData.textAlignVertical,
+                fontWeight: cellData.fontWeight    
+              }]}
               keyboardType='numeric'
               autoComplete={'cc-number'}
-              onChangeText={(newValue) => onChangeTextCell(y, x, newValue)}
+              onChangeText={(newValue) => onChangeTextCell(cellData.Field, newValue)}
             />}
 
             {cellData.type == "text" &&
-              <Text style={[styles.text, cellData.bold ? styles.boldText : null,
+              <Text style={[styles.text,
               {
                 color: cellData.color,
                 textAlign: cellData.textAlign,
                 textAlignVertical: cellData.textAlignVertical,
                 fontWeight: cellData.fontWeight
               }]}>
-                {cellData.value}
+                {cellData.text}
               </Text>
             }
 
@@ -79,7 +81,6 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     color: 'black',
     fontSize: 20,
-    borderRadius:3,
   },
 
   text: {
