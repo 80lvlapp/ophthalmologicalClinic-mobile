@@ -148,8 +148,8 @@ const tableRowsDataDefinitionPhoria = [
     [
         { type: '', colspan: 1 },
         { text: "c add", type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'right' },
-        { Field: '_43', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: '_44', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: '_43', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center'},
+        { Field: '_44', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center'},
         { type: '', colspan: 1 },
     ],
     [
