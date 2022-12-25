@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     color: 'black',
     fontSize: 20,
-    borderRadius:3,
   },
 
   text: {

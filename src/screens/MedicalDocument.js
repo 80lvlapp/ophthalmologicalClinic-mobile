@@ -16,33 +16,33 @@ export const MedicalDocument = () => {
         { value: 'axº', type: 'text', colspan: 1,  padding: 0, fontWeight: 'bold',  color: 'black', textAlignVertical:'bottom', textAlign:'center' },
         { value: 'vls', type: 'text', colspan: 1,  padding: 0, fontWeight: 'bold',  color: 'black', textAlignVertical:'bottom', textAlign:'center' }],
         
-        [{ value: "д/дал PD= мм", type: 'text', colspan: 1,  padding: 0, fontWeight: 'bold',  color: THEME.GREY_COLOR, textAlignVertical:'center', textAlign:'left'}],
+        [{ value: "д/дал PD= мм", type: 'text', colspan: 1,  padding: 1, fontWeight: 'bold',  color: THEME.GREY_COLOR, textAlignVertical:'center', textAlign:'left'}],
 
-        [{ value: "OD", type: 'text', colspan: 0.4,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
+        [{ value: "OD", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "1", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' }],
-        [{ value: "OS", type: 'text', colspan: 0.4,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
+        [{ value: "OS", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' }],
     
-        [{ value: "д/бл PD=мм", type: 'text', colspan: 1,  padding: 0, fontWeight: 'bold',  color:THEME.GREY_COLOR, textAlignVertical:'center', textAlign:'left'}],
+        [{ value: "д/бл PD=мм", type: 'text', colspan: 1,  padding: 1, fontWeight: 'bold',  color:THEME.GREY_COLOR, textAlignVertical:'center', textAlign:'left'}],
 
-        [{ value: "OD", type: 'text', colspan: 0.4,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
+        [{ value: "OD", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' }],
-        [{ value: "OS", type: 'text', colspan: 0.4,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
+        [{ value: "OS", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: '', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'left' }],
        
-        [{ value: "pall ADD", type: 'text', colspan: 0.4,  padding: 2, fontWeight: 'bold', color: 'black', textAlignVertical:'center', textAlign:'right' },
+        [{ value: "pall ADD", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold', color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
@@ -52,43 +52,44 @@ export const MedicalDocument = () => {
     const [tableRowsDataKeratometry, setTableRowsDataKeratometry] = React.useState([
         [{ value: 'OD', type: 'text', colspan: 4,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: 'OS', type: 'text', colspan: 4,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'center' }],
-        [{ value: "K1", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
+        
+        [{ value: "K1", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
-        { value: "AX1", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
+        { value: "AX1", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
-        { value: "K1", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
+        { value: "K1", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
-        { value: "AX1", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
+        { value: "AX1", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' }],
 
-        [{ value: "K2", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
+        [{ value: "K2", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
-        { value: "AX2", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
+        { value: "AX2", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
-        { value: "K2", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
+        { value: "K2", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
-        { value: "AX2", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
+        { value: "AX2", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' }],
 
-        [{ value: "AVE", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
+        [{ value: "AVE", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
-        { value: "", type: '', colspan: 0.5,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'left'  },
+        { value: "", type: '', colspan: 0.3,  padding: 2, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'left'  },
         { value: "", type: '', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'left' },
-        { value: "AVE", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
+        { value: "AVE", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right'  },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
-        { value: "", type: '', colspan: 0.5,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'left'  },
+        { value: "", type: '', colspan: 0.3,  padding: 2, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'left'  },
         { value: "", type: '', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'left' }],
  
     ]);
 
 
     const [tableRowsDataEyeResearch, setTableRowsDataEyeResearch] = React.useState([
-        [{ value: '', type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'center' },
+        [{ value: '', type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: 'Пневмотонометрия и тонометрия по Маклакову', type: 'text', colspan: 2,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: 'Оптическая биометрия / Ультразвуковая биометрия', type: 'text', colspan: 2,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: 'Оптическая биометрия / Ультразвуковая биометрия', type: 'text', colspan: 2,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'center'},
         ],
-        [{ type: '', colspan: 0.5,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'left' },
+        [{ type: '', colspan: 0.3,  padding: 2, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'left' },
         { value: "Пневмотонометрия", type: 'text', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "Тонометрия по Маклакову", type: 'text', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "Передняя камера (мм)", type: 'text', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
@@ -96,7 +97,7 @@ export const MedicalDocument = () => {
         { value: "ПЭК", type: 'text', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "ЦТР", type: 'text', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' }],
 
-        [{ value: "OD", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
+        [{ value: "OD", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
@@ -104,7 +105,7 @@ export const MedicalDocument = () => {
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' }],
         
-        [{ value: "OS", type: 'text', colspan: 0.5,  padding: 4, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
+        [{ value: "OS", type: 'text', colspan: 0.3,  padding: 2, fontWeight: 'bold',  color: 'black', textAlignVertical:'center', textAlign:'right' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
         { value: "", type: 'input', colspan: 1,  padding: 4, fontWeight: 'normal',  color: 'black', textAlignVertical:'center', textAlign:'center' },
@@ -181,11 +182,10 @@ export const MedicalDocument = () => {
                 containerStyle={{ marginBottom: 20 }}
             />
 
-            {selectedIndex == 0 && <DataTable  tableRowsData={tableRowsDataPatientGlasses} onChangeTextCell={onChangeTextCellPatientGlasses} 
-            />}
+            {selectedIndex == 0 && <DataTable  tableRowsData={tableRowsDataPatientGlasses} onChangeTextCell={onChangeTextCellPatientGlasses} />}
             {selectedIndex == 1 && <DataTable  tableRowsData={tableRowsDataKeratometry} onChangeTextCell={onChangeTextCellKeratometry} />}
             {selectedIndex == 2 && <DataTable  tableRowsData={tableRowsDataEyeResearch} onChangeTextCell={onChangeTextCellEyeResearch} />}
-            {selectedIndex == 3 && <DataTable  tableRowsData={tableRowsDataDefinitionPhoria} onChangeTextCell={onChangeDefinitionPhoria} TableWidth={"50%"}/>}
+            {selectedIndex == 3 && <DataTable  tableRowsData={tableRowsDataDefinitionPhoria} onChangeTextCell={onChangeDefinitionPhoria} TableWidth={"80%"}/>}
 
         </View>
 
