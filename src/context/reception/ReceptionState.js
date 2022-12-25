@@ -73,7 +73,7 @@ export const ReceptionState = ({ children }) => {
         date: moment().toDate(),
         fDoctor: "",
         fNamePatient: "",
-        fOperating: false,
+    
         fildSort: "time",
         firstOpen: true,
 
@@ -230,8 +230,7 @@ export const ReceptionState = ({ children }) => {
         dispatch({ type: SERVICES_REQUEST });
 
         const response = await getTestConnection();
-        //console.log(response.status);
-
+        
         try {
             const response = await authAxios.post('/?typerequest=getAllServicesForPatient', { guidPatient });
             const { services, patientParameters } = response.data;
@@ -856,7 +855,7 @@ export const ReceptionState = ({ children }) => {
         currentPatient: state.currentPatient,
         fDoctor: state.fDoctor,
         fNamePatient: state.fNamePatient,
-        fOperating: state.fOperating,
+    
         fildSort: state.fildSort,
         currentMedicalCard: state.currentMedicalCard,
 

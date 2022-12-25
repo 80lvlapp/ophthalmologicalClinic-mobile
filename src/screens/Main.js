@@ -15,7 +15,7 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 export const Main = ({ navigation, route }) => {
 
 	const { getDoctorsSchedule, doctorsSchedule, errorSchedule,
-		loadingDoctorsSchedule, doctors, sort, openPatient, date, setFild, fDoctor, fNamePatient, fOperating } = useContext(ReceptionContext);
+		loadingDoctorsSchedule, doctors, sort, openPatient, date, setFild, fDoctor, fNamePatient} = useContext(ReceptionContext);
 
 
 
@@ -46,11 +46,9 @@ export const Main = ({ navigation, route }) => {
 	const useFilter = (item) => {
 
 		const nameMatches = (!fNamePatient || item.presentationPatient.trim().toLowerCase().includes(fNamePatient.trim().toLowerCase()));
-		if (fOperating) {
-			return nameMatches && item.operating;
-		} else {
+	
 			return nameMatches && (fDoctor == item.employee.guid || fDoctor == 'all');
-		}
+		
 	}
 
 	const hendlerGetDoctorsSchedule = () => {
@@ -179,22 +177,7 @@ export const Main = ({ navigation, route }) => {
 			<View style={{ paddingLeft: 6, paddingRight: 6, backgroundColor: "white", justifyContent: "space-between", marginTop: 10, marginBottom: 10, flexDirection: 'row' }}>
 				<AppInputDate textStyle={{ fontSize: 20 }} date={date} setDate={(value) => { setFild("date", value) }} showTime={false} />
 
-				<CheckBox
-					title='Операционная'
-					checked={fOperating}
-					onPress={() => setFild("fOperating", !fOperating)}
-					containerStyle={{
-						backgroundColor: "white", borderWidth: 0, margin: 0, padding: 0
-					}}
-
-					center={true}
-
-					textStyle={{
-						fontSize: 10,
-						margin: 0, padding: 0, marginLeft: 0, marginRight: 0,
-						fontWeight: "normal"
-					}}
-				/>
+			
 
 				<Button title="Медицинский документ" onPress={()=>{navigation.navigate('MedicalDocument')}}/>
 
