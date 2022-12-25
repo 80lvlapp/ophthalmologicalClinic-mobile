@@ -1,27 +1,24 @@
 import React from "react";
 import { View, StyleSheet, TextInput, Text, } from "react-native";
 
-const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth }) => {
+const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth, tableValue }) => {
 
   return (
 
     <View style={styles.tableСontainer}>
-      <View style={[styles.table, {width: TableWidth }]}>
-
-
-
+      <View style={[styles.table, { width: TableWidth }]}>
         {tableRowsData && tableRowsData.map((itemTableRowsData, y) => <View key={y.toString()} style={styles.row}>
           {itemTableRowsData.map((cellData, x) =>
           (<View
             key={x.toString() + "_" + y.toString()}
-            style={[styles.cellData, {flex: cellData.colspan, padding: cellData.padding}]}
+            style={[styles.cellData, { flex: cellData.colspan, padding: cellData.padding }]}
           >
             {cellData.type == "input" && <TextInput
-              value={cellData.value}
-              style={[styles.textInput, {textAlign: cellData.textAlign}]}
+              value={tableValue[cellData.Field]}
+              style={[styles.textInput, { textAlign: cellData.textAlign }]}
               keyboardType='numeric'
               autoComplete={'cc-number'}
-              onChangeText={(newValue) => onChangeTextCell(y, x, newValue)}
+              onChangeText={(newValue) => onChangeTextCell(cellData.Field, newValue)}
             />}
 
             {cellData.type == "text" &&
