@@ -15,21 +15,26 @@ const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth, tableValue }) 
           >
             {cellData.type == "input" && <TextInput
               value={tableValue[cellData.Field]}
-              style={[styles.textInput, { textAlign: cellData.textAlign }]}
+              style={[styles.textInput, { 
+                color: cellData.color,
+                textAlign: cellData.textAlign,
+                textAlignVertical: cellData.textAlignVertical,
+                fontWeight: cellData.fontWeight    
+              }]}
               keyboardType='numeric'
               autoComplete={'cc-number'}
               onChangeText={(newValue) => onChangeTextCell(cellData.Field, newValue)}
             />}
 
             {cellData.type == "text" &&
-              <Text style={[styles.text, cellData.bold ? styles.boldText : null,
+              <Text style={[styles.text,
               {
                 color: cellData.color,
                 textAlign: cellData.textAlign,
                 textAlignVertical: cellData.textAlignVertical,
                 fontWeight: cellData.fontWeight
               }]}>
-                {cellData.value}
+                {cellData.text}
               </Text>
             }
 
