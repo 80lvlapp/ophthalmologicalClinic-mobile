@@ -4,6 +4,8 @@ export const THEME = {
     GREY_COLOR: '#757575',
     //MAIN_COLOR: '#3949ab'
     BUTTON_COLOR: '#179cf0',
-    MAIN_COLOR: '#28a0d8'
+    MAIN_COLOR: '#28a0d8',
+    SELECT_COLOR: '#4CAF50'
+
     
 }

@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
-import { Text, View, StyleSheet, FlatList, TouchableOpacity, Alert } from 'react-native';
-import { ListItem, SearchBar, CheckBox, Divider, Button } from 'react-native-elements'
+import React, { useContext, useEffect, } from 'react';
+import { Text, View, StyleSheet, FlatList, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import { ListItem, SearchBar, Button } from 'react-native-elements'
 import { ReceptionContext } from '../context/reception/ReceptionContext';
 import { EmptyListMessage } from '../components/EmptyListMessage';
 import { THEME } from '../themes';
@@ -9,15 +9,16 @@ import moment from 'moment';
 import { TextError } from '../components/TextError';
 import Icon from 'react-native-vector-icons/AntDesign';
 import IconFontisto from 'react-native-vector-icons/Fontisto';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
+
 
 
 export const Main = ({ navigation, route }) => {
 
 	const { getDoctorsSchedule, doctorsSchedule, errorSchedule,
-		loadingDoctorsSchedule, doctors, sort, openPatient, date, setFild, fDoctor, fNamePatient} = useContext(ReceptionContext);
+		loadingDoctorsSchedule, doctors, openPatient, date, setFild, fDoctor, fNamePatient } = useContext(ReceptionContext);
 
 
+	console.log('doctors', doctors);
 
 	React.useLayoutEffect(() => {
 
@@ -39,16 +40,14 @@ export const Main = ({ navigation, route }) => {
 
 
 
+
 	useEffect(() => {
 		hendlerGetDoctorsSchedule();
-	}, [date]);
+	}, [date, fDoctor]);
 
 	const useFilter = (item) => {
-
 		const nameMatches = (!fNamePatient || item.presentationPatient.trim().toLowerCase().includes(fNamePatient.trim().toLowerCase()));
-	
-			return nameMatches && (fDoctor == item.employee.guid || fDoctor == 'all');
-		
+		return nameMatches && (fDoctor == item.employee.guid || fDoctor == 'all');
 	}
 
 	const hendlerGetDoctorsSchedule = () => {
@@ -86,14 +85,6 @@ export const Main = ({ navigation, route }) => {
 	}
 
 
-
-	let rowSwipeable = [];
-
-	const closeRowSwipeable = (index) => {
-
-		rowSwipeable[index].close();
-	}
-
 	const getBackgroundStyle = (item) => {
 
 		if (!item.medicalCard.guid) {
@@ -107,82 +98,49 @@ export const Main = ({ navigation, route }) => {
 	}
 
 	const renderItem = ({ index, item }) => (
+		<ListItem key={item.guid} onPress={() => { onPressScheduleItem(item) }}
+			bottomDivider
+			topDivider
+			containerStyle={getBackgroundStyle(item)}>
 
-		<Swipeable
-			ref={ref => rowSwipeable[index] = ref}
-			renderLeftActions={() =>
-				item.service.guidService != '' ?
-					<View style={{
-						backgroundColor: 'green', width: "100%", flexDirection: 'row',
-						justifyContent: 'flex-start',
-						alignItems: 'center',
-						flex: 1
-					}}>
-						<Button
-							icon={{ name: 'camera', color: "white", backgroundColor: 'green', size: 30 }}
-							buttonStyle={{ minHeight: '100%', backgroundColor: 'green' }} />
-					</View> : <></>
-			}
-			onSwipeableOpen={() => {
+			{item.visitRegistered && <IconFontisto
+				name={"check"}
+				size={20}
+				color={"green"}
+			/>}
 
-				closeRowSwipeable(index);
+			<ListItem.Content>
+				<ListItem.Title  >
+					{item.timeOfReceipt} {item.presentationPatient}
+				</ListItem.Title>
 
-				if (item.medicalCard.guid === "") {
-					Alert.alert("Внимание", "Карта пациента не зарегистрирована");
-					return;
-				}
-
-				if (item.service.guidService == '') {
-					Alert.alert("Внимание", "Не определена услуга");
-					return;
-				} else {
-					setFild("currentService", item.service);
-					setFild("currentPatient", item.patient);
-
-
-					navigation.navigate('AppCamera');
-				}
-
-			}}
-		>
-			<ListItem key={item.guid} onPress={() => { onPressScheduleItem(item) }}
-				bottomDivider
-				topDivider
-				containerStyle={getBackgroundStyle(item)}>
-
-				{item.visitRegistered && <IconFontisto
-					name={"check"}
-					size={20}
-					color={"green"}
-				/>}
-
-				<ListItem.Content>
-
-					<ListItem.Title  >
-						{item.timeOfReceipt} {item.presentationPatient}
-					</ListItem.Title>
-
-					<ListItem.Subtitle style={{ fontSize: 10, fontFamily: 'Roboto', fontWeight: "bold" }}>
-						{item.nomenclature.name}
-					</ListItem.Subtitle>
-				</ListItem.Content>
-				<ListItem.Chevron />
-			</ListItem>
-		</Swipeable>
+				<ListItem.Subtitle style={{ fontSize: 10, fontFamily: 'Roboto', fontWeight: "bold" }}>
+					{item.nomenclature.name}
+				</ListItem.Subtitle>
+			</ListItem.Content>
+			<ListItem.Chevron />
+		</ListItem>
 	);
+
+	let doctorsFilter = Object.assign([], doctors);
+	doctorsFilter.unshift({ guid: 'all', name: 'Все' });
 
 	return (
 		<View style={{ flex: 1, backgroundColor: "white", padding: 2 }}>
-
-			<View style={{ paddingLeft: 6, paddingRight: 6, backgroundColor: "white", justifyContent: "space-between", marginTop: 10, marginBottom: 10, flexDirection: 'row' }}>
+			<View style={{ paddingLeft: 6, paddingRight: 6, backgroundColor: "white", justifyContent: "space-between", marginTop: 10, marginBottom: 5, flexDirection: 'row' }}>
 				<AppInputDate textStyle={{ fontSize: 20 }} date={date} setDate={(value) => { setFild("date", value) }} showTime={false} />
+				<Button title="Медицинский документ" onPress={() => { navigation.navigate('MedicalDocument') }} />
+			</View>
 
-			
-
-				<Button title="Медицинский документ" onPress={()=>{navigation.navigate('MedicalDocument')}}/>
-
-
-
+			<View style={[styles.doctors]}>
+				<ScrollView horizontal={true} style={[styles.contentContainer]} >
+					{doctorsFilter.map(item =>
+						<View style={styles.wraperDoctorItem} key={item.guid} >
+							<TouchableOpacity style={[styles.doctorItem, item.guid == fDoctor ? styles.selectDoctorItem : null]} onPress={() => setFild("fDoctor", item.guid)}>
+								<Text numberOfLines={2} style={[styles.doctorItemText, item.guid == fDoctor ? styles.selectdoctorItemText : null]}>{item.name}</Text>
+							</TouchableOpacity>
+						</View>)}
+				</ScrollView>
 			</View>
 
 			<SearchBar
@@ -204,16 +162,19 @@ export const Main = ({ navigation, route }) => {
 
 			{errorSchedule && <TextError textError={errorSchedule} />}
 
-			<FlatList
+			<View>
+				<FlatList
 
-				data={doctorsSchedule.filter(item => useFilter(item))}
-				renderItem={renderItem}
-				keyExtractor={(item, index) => index.toString()}
-				onRefresh={() => hendlerGetDoctorsSchedule()}
-				refreshing={loadingDoctorsSchedule}
-				ListEmptyComponent={<EmptyListMessage loading={loadingDoctorsSchedule} />}
+					data={doctorsSchedule.filter(item => useFilter(item))}
+					renderItem={renderItem}
+					keyExtractor={(item, index) => index.toString()}
+					onRefresh={() => hendlerGetDoctorsSchedule()}
+					refreshing={loadingDoctorsSchedule}
+					ListEmptyComponent={<EmptyListMessage loading={loadingDoctorsSchedule} />}
 
-			/>
+				/>
+
+			</View>
 		</View>
 	);
 }
@@ -221,6 +182,46 @@ export const Main = ({ navigation, route }) => {
 
 const styles = StyleSheet.create(
 	{
+		contentContainer: {
+			padding: 10,
+		},
+
+		wraperDoctorItem: {
+			padding: 5,
+		},
+
+		doctorItem: {
+			borderWidth: 1,
+			width: 170,
+			height: 60,
+			borderRadius: 10,
+			justifyContent: 'center',
+			alignItems: 'center',
+			backgroundColor: "white",
+			padding: 4
+		},
+
+		selectDoctorItem: {
+			backgroundColor: THEME.SELECT_COLOR,
+			color: 'white',
+			borderWidth: 0
+		},
+
+		doctorItemText: {
+			textAlign: 'center',
+			textAlignVertical: 'center',
+			color: 'black',
+			fontSize: 18,
+			width: "100%",
+			height: "100%",
+
+		},
+
+		selectdoctorItemText: {
+			color: 'white',
+			fontWeight: 'bold'
+		},
+
 		titleStyle: {
 			fontSize: 12,
 			marginLeft: 10,
@@ -231,4 +232,6 @@ const styles = StyleSheet.create(
 		},
 	}
 )
+
+
 
