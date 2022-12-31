@@ -17,29 +17,14 @@ export const Main = ({ navigation, route }) => {
 	const { getDoctorsSchedule, doctorsSchedule, errorSchedule,
 		loadingDoctorsSchedule, doctors, openPatient, date, setFild, fDoctor, fNamePatient } = useContext(ReceptionContext);
 
-
-	console.log('doctors', doctors);
-
 	React.useLayoutEffect(() => {
-
-		let doctor = doctors.find(item => item.guid == fDoctor);
-		let name = "";
-		if (doctor) {
-			name = doctor.name;
-		} else {
-			name = "Все";
-		}
 		navigation.setOptions({
-			title: name,
+			title: 'Расписание врачей',
 			headerTitleStyle: {
 				fontSize: 16,
 			},
 		});
-
-	}, [route, fDoctor, doctors]);
-
-
-
+	}, []);
 
 	useEffect(() => {
 		hendlerGetDoctorsSchedule();
@@ -53,7 +38,6 @@ export const Main = ({ navigation, route }) => {
 	const hendlerGetDoctorsSchedule = () => {
 		getDoctorsSchedule(moment(date).format('YYYYMMDD'), fDoctor);
 	}
-
 
 	React.useLayoutEffect(() => {
 		navigation.setOptions({
@@ -75,13 +59,10 @@ export const Main = ({ navigation, route }) => {
 	const onPressScheduleItem = (item) => {
 
 		if (item.medicalCard.guid === "") {
-
-			Alert.alert("Внимание", "Карта пациента не зарегистрирована\n\n" + "Комментарий: " + item.comment);
+				Alert.alert("Внимание", "Карта пациента не зарегистрирована\n\n" + "Комментарий: " + item.comment);
 			return;
 		}
-
 		openPatient(item.patient, item.medicalCard, navigation)
-
 	}
 
 
