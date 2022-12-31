@@ -35,8 +35,9 @@
 				<xr:Item xsi:type="xr:MDObjectRef">CommonForm.lvlappВводПароля</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">CommonPicture.МобильныйКабинетВрача</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">Role.lvlapp_СервисМобильногоПриложения</xr:Item>
-				<xr:Item xsi:type="xr:MDObjectRef">58784cee-31b5-4560-b9fd-4775279c4901</xr:Item>
 				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.lvlapp_МобильныеМедицинскиеДокументы</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">ChartOfCharacteristicTypes.lvlapp_ДополнительныеПараметрыУслуги</xr:Item>
+				<xr:Item xsi:type="xr:MDObjectRef">InformationRegister.lvlapp_ЗначениеДополнительныхПараметровУслуг</xr:Item>
 			</Content>
 		</Properties>
 		<ChildObjects/>

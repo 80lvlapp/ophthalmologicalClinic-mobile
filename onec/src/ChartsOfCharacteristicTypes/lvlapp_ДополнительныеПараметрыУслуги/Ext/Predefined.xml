@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PredefinedData xmlns="http://v8.1c.ru/8.3/xcf/predef" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PlanOfCharacteristicKindPredefinedItems" version="2.13">
+	<Item id="08701f76-afab-4491-b78c-3d8a40912bbb">
+		<Name>ГлазаЗакапаны</Name>
+		<Code>000000001</Code>
+		<Description>Глаза закапаны</Description>
+		<Type>
+			<v8:Type>xs:boolean</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+	<Item id="608ea502-cee8-40a2-b2a1-74e19478e19b">
+		<Name>ОбследованиеЗавершено</Name>
+		<Code>000000002</Code>
+		<Description>Обследование завершено</Description>
+		<Type>
+			<v8:Type>xs:boolean</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
+</PredefinedData>
