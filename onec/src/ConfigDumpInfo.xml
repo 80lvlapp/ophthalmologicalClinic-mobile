@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ConfigDumpInfo xmlns="http://v8.1c.ru/8.3/xcf/dumpinfo" xmlns:xen="http://v8.1c.ru/8.3/xcf/enums" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" format="Hierarchical" version="2.13">
 	<ConfigVersions>
-		<Metadata name="Catalog.lvlapp_ВнешниеПользователи" id="b790078b-7b91-4ff3-94b9-167db6283a57" configVersion="9b91b9a136825a4391556528fcff353d00000000">
+		<Metadata name="Catalog.lvlapp_ВнешниеПользователи" id="b790078b-7b91-4ff3-94b9-167db6283a57" configVersion="30030db958bea04ba4b93da1f3bad19200000000">
 			<Metadata name="Catalog.lvlapp_ВнешниеПользователи.Attribute.Пользователь" id="5d21116b-e450-45b9-a78c-99ce700d7bff"/>
 			<Metadata name="Catalog.lvlapp_ВнешниеПользователи.Command.УстановитьПароль" id="6e280982-c97b-4e65-ae64-3c6518d5a8cf"/>
 			<Metadata name="Catalog.lvlapp_ВнешниеПользователи.Attribute.ВнешнийПользовательЗаблокирован" id="99258c71-d855-4b9e-ad19-fb1cffc45392"/>
@@ -12,17 +12,22 @@
 		<Metadata name="Catalog.lvlapp_ВнешниеПользователи.ObjectModule" id="b790078b-7b91-4ff3-94b9-167db6283a57.0" configVersion="b7681bed50a94b41b4b01ce0823a185900000000"/>
 		<Metadata name="Catalog.lvlapp_ВнешниеПользователи.Predefined" id="b790078b-7b91-4ff3-94b9-167db6283a57.1c" configVersion="54fc733a855164489175c640cc49def500000000"/>
 		<Metadata name="Catalog.lvlapp_Теги" id="a93356a5-71d4-4244-82f8-50dd31842614" configVersion="9e628cd5b163c34f88f883bdee8fdc1e00000000"/>
+		<Metadata name="ChartOfCharacteristicTypes.lvlapp_ДополнительныеПараметрыУслуги" id="e504b440-73e7-4de6-8ef3-e29d8e6f7bee" configVersion="cd8e4ec42682754d8cae5f3d83362a1300000000">
+			<Metadata name="ChartOfCharacteristicTypes.lvlapp_ДополнительныеПараметрыУслуги.TabularSection.Услуги" id="0d440e0d-5b69-43d6-a209-fc11c3123a29"/>
+			<Metadata name="ChartOfCharacteristicTypes.lvlapp_ДополнительныеПараметрыУслуги.TabularSection.Услуги.Attribute.Услуга" id="0d6780f5-187c-4420-acf3-48c87eef770b"/>
+		</Metadata>
+		<Metadata name="ChartOfCharacteristicTypes.lvlapp_ДополнительныеПараметрыУслуги.Predefined" id="e504b440-73e7-4de6-8ef3-e29d8e6f7bee.7" configVersion="2c93747d4cd98140a1c2f8d7130856c000000000"/>
 		<Metadata name="CommonForm.lvlappВводПароля" id="f43bfa92-0862-45f2-a8fb-198851c4e832" configVersion="190b79a453bcbf409fcb5e710ac28d7500000000"/>
 		<Metadata name="CommonForm.lvlappВводПароля.Form" id="f43bfa92-0862-45f2-a8fb-198851c4e832.0" configVersion="606da6f584e5fa4bb936848b2d9e855000000000"/>
 		<Metadata name="CommonModule.lvlapp_Авторизация" id="00d4a31c-2973-4fb8-96bf-f0a07147915f" configVersion="874d4e086f6ddc498f56328895f7991200000000"/>
 		<Metadata name="CommonModule.lvlapp_Авторизация.Module" id="00d4a31c-2973-4fb8-96bf-f0a07147915f.0" configVersion="83e962cdead7ad48b5953f1f900dbb6a00000000"/>
-		<Metadata name="CommonModule.lvlapp_МобильныйКабинетВрачаОбменСервер" id="ec4aee3d-8fd2-4166-a7c3-475aab0d398a" configVersion="1b42f00d23b33540adf8d21dc5208f1200000000"/>
-		<Metadata name="CommonModule.lvlapp_МобильныйКабинетВрачаОбменСервер.Module" id="ec4aee3d-8fd2-4166-a7c3-475aab0d398a.0" configVersion="df4953ef61a2e7428d241dfd5ad21e4900000000"/>
+		<Metadata name="CommonModule.lvlapp_МобильныйКабинетВрачаОбменСервер" id="ec4aee3d-8fd2-4166-a7c3-475aab0d398a" configVersion="65dbe2549ee7734281790da6e8fd654000000000"/>
+		<Metadata name="CommonModule.lvlapp_МобильныйКабинетВрачаОбменСервер.Module" id="ec4aee3d-8fd2-4166-a7c3-475aab0d398a.0" configVersion="82183c6ee066ac4d93af4254770a461000000000"/>
 		<Metadata name="CommonPicture.МобильныйКабинетВрача" id="f6eff53f-de8e-4b3c-99c5-e09227b9500c" configVersion="84589f8540d1c941a1ad35d2eb8f250b00000000"/>
 		<Metadata name="CommonPicture.МобильныйКабинетВрача.Picture" id="f6eff53f-de8e-4b3c-99c5-e09227b9500c.0" configVersion="121097134d3c6d489d16c5c62c291ea100000000"/>
 		<Metadata name="CommonTemplate.lvlapp_ПисьмоСбросаПароля" id="45184319-dcdd-4bae-a119-d661c3c4a10d" configVersion="a128b17a271f4646b53626e8d64706bc00000000"/>
 		<Metadata name="CommonTemplate.lvlapp_ПисьмоСбросаПароля.Template" id="45184319-dcdd-4bae-a119-d661c3c4a10d.0" configVersion="5217b2e34fce8949bc164527c3eb6f3800000000"/>
-		<Metadata name="Configuration.Конфигурация" id="b5e84884-f7c9-4e63-bfbb-f6ce14931236" configVersion="be6eace1abc7ee4bb6a3e294daa278c700000000"/>
+		<Metadata name="Configuration.Конфигурация" id="b5e84884-f7c9-4e63-bfbb-f6ce14931236" configVersion="7c995d85f48ddc428e13c5a4d90d64ea00000000"/>
 		<Metadata name="Constant.lvlapp_SecretKey" id="9f675171-f837-4672-b031-e5a5d499a506" configVersion="1a717f17494d0344ae37132cbc3f0c0700000000"/>
 		<Metadata name="Constant.lvlapp_АдресПортала" id="a88262ca-172e-4c16-bd86-c6b1dd36903a" configVersion="f393ee26f4674246bb2af98760fc176500000000"/>
 		<Metadata name="HTTPService.lvlapp_РабочееМестоВрача" id="be329f0d-5834-4220-ac50-414f55104b69" configVersion="1a650eed8342574ca8e551f62132529a00000000">
@@ -31,6 +36,11 @@
 			<Metadata name="HTTPService.lvlapp_РабочееМестоВрача.URLTemplate.Основной.Method.post" id="53727b6f-862d-4c44-a2e6-e5e3fac86d57"/>
 		</Metadata>
 		<Metadata name="HTTPService.lvlapp_РабочееМестоВрача.Module" id="be329f0d-5834-4220-ac50-414f55104b69.0" configVersion="1e87514c5ebc3d4c9c40b3285660967d00000000"/>
+		<Metadata name="InformationRegister.lvlapp_ЗначениеДополнительныхПараметровУслуг" id="f2c1caa3-8f0c-4628-b3cc-bde481f90bb6" configVersion="a641d28cfe8cfd4db38660d10c6ea8ac00000000">
+			<Metadata name="InformationRegister.lvlapp_ЗначениеДополнительныхПараметровУслуг.Dimension.Параметр" id="1f890dd7-eb94-40d0-bf5f-629b0f3fdf06"/>
+			<Metadata name="InformationRegister.lvlapp_ЗначениеДополнительныхПараметровУслуг.Dimension.УникальныйИдентификаторУслуги" id="41747ba9-5f93-4b6b-91d8-0f9bf79ed047"/>
+			<Metadata name="InformationRegister.lvlapp_ЗначениеДополнительныхПараметровУслуг.Resource.Значение" id="ad8e3cfa-21c0-4e00-89f0-9e9277057903"/>
+		</Metadata>
 		<Metadata name="InformationRegister.lvlapp_КлючиАвторизацииВнешнихПользователей" id="ecb8fe59-2e30-4979-b1a3-68af54e326f5" configVersion="375cb26da450934c8390f5268be3559c00000000">
 			<Metadata name="InformationRegister.lvlapp_КлючиАвторизацииВнешнихПользователей.Resource.ip" id="15075fe5-5b20-4967-a98f-5a4f2d38c74a"/>
 			<Metadata name="InformationRegister.lvlapp_КлючиАвторизацииВнешнихПользователей.Resource.fingerprint" id="19b4bf58-0fee-4717-816e-8717aab3e7cc"/>
@@ -47,7 +57,7 @@
 			<Metadata name="InformationRegister.lvlapp_КодыПодтвержденияВнешнихПользователей.Resource.КоличествоПопыток" id="a0b4e83e-1bab-4c42-a807-5acb350a6ff9"/>
 			<Metadata name="InformationRegister.lvlapp_КодыПодтвержденияВнешнихПользователей.Resource.Код" id="fe7a1c35-5318-4bc8-9872-db4398509112"/>
 		</Metadata>
-		<Metadata name="InformationRegister.lvlapp_МобильныеМедицинскиеДокументы" id="fce0b1bd-a4f2-4368-8065-c6ef401d6bd3" configVersion="3d88e0e0bf7b4a45a0778542f21df97e00000000">
+		<Metadata name="InformationRegister.lvlapp_МобильныеМедицинскиеДокументы" id="fce0b1bd-a4f2-4368-8065-c6ef401d6bd3" configVersion="513dd66655020e48b02791ffe82ec75b00000000">
 			<Metadata name="InformationRegister.lvlapp_МобильныеМедицинскиеДокументы.Resource.ИдентификаторВМобильномПриложении" id="7d348212-d87b-4032-8d83-2b1c188a5b81"/>
 			<Metadata name="InformationRegister.lvlapp_МобильныеМедицинскиеДокументы.Dimension.МедицинскийДокумент" id="9829c642-b80e-4165-a708-1995d374d608"/>
 		</Metadata>
@@ -61,13 +71,13 @@
 			<Metadata name="InformationRegister.lvlapp_ПаролиВнешнихПользователей.Dimension.Пользователь" id="84ea9d15-55f8-4bd1-b3c2-bf18f6cea6cc"/>
 			<Metadata name="InformationRegister.lvlapp_ПаролиВнешнихПользователей.Resource.ДатаИзменения" id="b71923d1-47c0-4fb8-97a0-385c88cd638a"/>
 		</Metadata>
-		<Metadata name="InformationRegister.lvlapp_ТегиФотоснимков" id="7f55c301-bfa4-42fa-ae3a-c0bc75fd6ae2" configVersion="00f90f4fefc67246bd622af42e47571e00000000">
+		<Metadata name="InformationRegister.lvlapp_ТегиФотоснимков" id="7f55c301-bfa4-42fa-ae3a-c0bc75fd6ae2" configVersion="262347c9ae313a4c97515b6e51a4df6700000000">
 			<Metadata name="InformationRegister.lvlapp_ТегиФотоснимков.Dimension.Тег" id="551be3ee-fd87-41db-90eb-b9304a228b7b"/>
 			<Metadata name="InformationRegister.lvlapp_ТегиФотоснимков.Attribute.ДатаДобавления" id="8a0695c9-3f5f-4287-ad4c-f450d84fc91f"/>
 			<Metadata name="InformationRegister.lvlapp_ТегиФотоснимков.Attribute.Пользователь" id="a02af223-029a-45af-9358-adbf53c922e3"/>
 			<Metadata name="InformationRegister.lvlapp_ТегиФотоснимков.Dimension.Фото" id="c7263ad8-2ed7-470e-94ed-e89aff3398d6"/>
 		</Metadata>
-		<Metadata name="InformationRegister.lvlapp_Фотоснимки" id="419378ff-90f3-472b-8438-cf054866ac78" configVersion="f44a2b5435315a4bb968be7aee95fa9e00000000">
+		<Metadata name="InformationRegister.lvlapp_Фотоснимки" id="419378ff-90f3-472b-8438-cf054866ac78" configVersion="79760eff04d9af46bec5d7ae1ea1f3b200000000">
 			<Metadata name="InformationRegister.lvlapp_Фотоснимки.Resource.ПометкаУдаления" id="1c618bd7-c500-42c4-aa46-ae1061c99ab3"/>
 			<Metadata name="InformationRegister.lvlapp_Фотоснимки.Dimension.УникальныйИдентификаторУслуги" id="233137a9-018a-4e3d-b287-32f08a7244db"/>
 			<Metadata name="InformationRegister.lvlapp_Фотоснимки.Resource.ВключенВГалереюДоПосле" id="670c1b06-49df-4c15-bbb6-50a0e7e7c8bc"/>
@@ -82,6 +92,6 @@
 		<Metadata name="Language.Русский" id="5991c930-c7e0-4d4b-badc-4d755d70b82e" configVersion="c725c7e85e421c4d9f352a9928b2302700000000"/>
 		<Metadata name="Role.lvlapp_СервисМобильногоПриложения" id="19ca9baf-5b11-4b20-b5eb-e05d3810ade8" configVersion="9ab366568e602c41b9b71e8565b65b2f00000000"/>
 		<Metadata name="Role.lvlapp_СервисМобильногоПриложения.Rights" id="19ca9baf-5b11-4b20-b5eb-e05d3810ade8.0" configVersion="60ea7d02e3d2b04eb5811411ce2c6ead00000000"/>
-		<Metadata name="Subsystem.lvlapp_МобильныйКабинетВрача" id="8f554704-1832-449b-b309-78be1d4d8c6e" configVersion="dbc81cfe04518f44a85ca8557a79382d00000000"/>
+		<Metadata name="Subsystem.lvlapp_МобильныйКабинетВрача" id="8f554704-1832-449b-b309-78be1d4d8c6e" configVersion="48fa9fab8716444aa45773aee5752ff700000000"/>
 	</ConfigVersions>
 </ConfigDumpInfo>

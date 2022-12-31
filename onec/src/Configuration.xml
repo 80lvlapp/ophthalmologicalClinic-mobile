@@ -224,11 +224,13 @@
 			<Catalog>lvlapp_Теги</Catalog>
 			<InformationRegister>lvlapp_КлючиАвторизацииВнешнихПользователей</InformationRegister>
 			<InformationRegister>lvlapp_КодыПодтвержденияВнешнихПользователей</InformationRegister>
-			<InformationRegister>lvlapp_ПаролиВнешнихПользователей</InformationRegister>
 			<InformationRegister>lvlapp_Фотоснимки</InformationRegister>
 			<InformationRegister>lvlapp_ОбработанныеФайлы</InformationRegister>
 			<InformationRegister>lvlapp_ТегиФотоснимков</InformationRegister>
 			<InformationRegister>lvlapp_МобильныеМедицинскиеДокументы</InformationRegister>
+			<InformationRegister>lvlapp_ПаролиВнешнихПользователей</InformationRegister>
+			<InformationRegister>lvlapp_ЗначениеДополнительныхПараметровУслуг</InformationRegister>
+			<ChartOfCharacteristicTypes>lvlapp_ДополнительныеПараметрыУслуги</ChartOfCharacteristicTypes>
 		</ChildObjects>
 	</Configuration>
 </MetaDataObject>
