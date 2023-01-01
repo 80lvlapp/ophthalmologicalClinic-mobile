@@ -1,21 +1,57 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, ScrollView, StyleSheet, FlatList, ActivityIndicator, TouchableOpacity } from 'react-native';
+import { View, ScrollView, StyleSheet, ActivityIndicator, TouchableOpacity, PermissionsAndroid } from 'react-native';
 import { Card, ListItem, Input, Image, Text, Divider, Button } from 'react-native-elements';
 import { ReceptionContext } from '../context/reception/ReceptionContext';
 import { THEME } from '../themes';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import IconDoctor from 'react-native-vector-icons/MaterialCommunityIcons';
-import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { TextError } from '../components/TextError';
 import uuid from 'react-native-uuid';
-import { useFocusEffect } from '@react-navigation/native';
-import Swipeable from 'react-native-gesture-handler/Swipeable';
+import { launchCamera } from 'react-native-image-picker';
+
+const requestCameraPermission = async () => {
+    if (Platform.OS === 'android') {
+        try {
+            const granted = await PermissionsAndroid.request(
+                PermissionsAndroid.PERMISSIONS.CAMERA,
+                {
+                    title: 'Camera Permission',
+                    message: 'App needs camera permission',
+                },
+            );
+            return granted === PermissionsAndroid.RESULTS.GRANTED;
+        } catch (err) {
+            console.warn(err);
+            return false;
+        }
+    } else return true;
+};
+
+const requestExternalWritePermission = async () => {
+    if (Platform.OS === 'android') {
+        try {
+            const granted = await PermissionsAndroid.request(
+                PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+                {
+                    title: 'External Storage Write Permission',
+                    message: 'App needs write permission',
+                },
+            );
+            return granted === PermissionsAndroid.RESULTS.GRANTED;
+        } catch (err) {
+            console.warn(err);
+            alert('Write permission err', err);
+        }
+        return false;
+    } else return true;
+};
+
 
 
 export const PatientService = ({ navigation, route }) => {
 
     const [groupIsOpen, setGroupIsOpen] = React.useState(false);
-    const { currentPatient, arrayPhoto, setPhoto, currentService, setFild, dataService, openHTML, loadingDataService, errorDataService, openPatientGallery, saveComentLoading, errorComentloading, saveComent } = useContext(ReceptionContext);
+    const {uploadPhoto, currentPatient, arrayPhoto, setPhoto, currentService, setFild, dataService, openHTML, loadingDataService, errorDataService, openPatientGallery, saveComentLoading, errorComentloading, saveComent } = useContext(ReceptionContext);
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
@@ -27,14 +63,41 @@ export const PatientService = ({ navigation, route }) => {
 
     }, [route]);
 
-    useEffect(() => {
 
+    const captureImage = async () => {
 
-        console.log(currentService);
+        let isCameraPermitted = await requestCameraPermission();
+        let isStoragePermitted = await requestExternalWritePermission();
+        if (isCameraPermitted && isStoragePermitted) {
+            launchCamera({
+                saveToPhotos: true,
+                mediaType: 'photo',
+                includeBase64: false,
+            }, (response) => {
 
+                if (response.didCancel) {
+                    return;
+                } else if (response.errorCode == 'camera_unavailable') {
+                    return;
+                } else if (response.errorCode == 'permission') {
+                    return;
+                } else if (response.errorCode == 'others') {
+                    return;
+                }
 
-    }, []);
+                console.log(response);
+                const photoItem = {
+                    uri:response.assets[0].uri,
+                    guidService: currentService.guidService,
+                    guidServiceRef: currentService.service.guid,
+                    guidPatient: currentPatient.guid,
+                };
 
+                uploadPhoto(photoItem, ()=>{}, ()=>{});
+
+            });
+        }
+    };
 
     const loadFoto = arrayPhoto.find(item => item.guidServiceRef == currentService.service.guid) != undefined;
 
@@ -46,15 +109,6 @@ export const PatientService = ({ navigation, route }) => {
 
     { errorDataService && <TextError textError={errorDataService} /> }
 
-    const photoRemoveHandler = (key) => {
-
-    }
-
-    const captureImage = async (type) => {
-
-        navigation.navigate('AppCamera');
-    }
-
     const chooseFile = (type) => {
 
         launchImageLibrary({
@@ -63,7 +117,7 @@ export const PatientService = ({ navigation, route }) => {
             mediaType: 'photo',
             selectionLimit: 0,
 
-        }, (response) => { 
+        }, (response) => {
 
             if (response.didCancel) {
                 console.log('User cancelled image picker');
@@ -144,7 +198,7 @@ export const PatientService = ({ navigation, route }) => {
 
                 <Input
 
-                    containerStyle={{ marginTop: 10}}
+                    containerStyle={{ marginTop: 10 }}
 
 
                     label='Комментарий'
@@ -196,7 +250,7 @@ export const PatientService = ({ navigation, route }) => {
 
                 </ListItem.Accordion>
 
-                <Card.Divider style = {{marginTop: 10}}/>
+                <Card.Divider style={{ marginTop: 10 }} />
 
 
 
@@ -218,7 +272,7 @@ export const PatientService = ({ navigation, route }) => {
                         marginVertical: 5,
                     }}
                     onPress={() => captureImage('photo')}
-                    title = " Сделать фото" />
+                    title=" Сделать фото" />
 
 
             </View>
