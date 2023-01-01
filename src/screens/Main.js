@@ -9,8 +9,7 @@ import moment from 'moment';
 import { TextError } from '../components/TextError';
 import Icon from 'react-native-vector-icons/AntDesign';
 import IconFontisto from 'react-native-vector-icons/Fontisto';
-
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export const Main = ({ navigation, route }) => {
 
@@ -59,14 +58,15 @@ export const Main = ({ navigation, route }) => {
 	const onPressScheduleItem = (item) => {
 
 		if (item.medicalCard.guid === "") {
-				Alert.alert("Внимание", "Карта пациента не зарегистрирована\n\n" + "Комментарий: " + item.comment);
+			Alert.alert("Внимание", "Карта пациента не зарегистрирована\n\n" + "Комментарий: " + item.comment);
 			return;
 		}
 		openPatient(item.patient, item.medicalCard, navigation)
 	}
 
-
-	const getBackgroundStyle = (item) => {
+	{
+		/* формирование фонового цвета перенес в 1с
+		/*const getBackgroundStyle = (item) => {
 
 		if (!item.medicalCard.guid) {
 			return { backgroundColor: "#DADADA" };
@@ -76,26 +76,33 @@ export const Main = ({ navigation, route }) => {
 			return {};
 		}
 
+	}  */
 	}
 
 	const renderItem = ({ index, item }) => (
 		<ListItem key={item.guid} onPress={() => { onPressScheduleItem(item) }}
 			bottomDivider
 			topDivider
-			containerStyle={getBackgroundStyle(item)}>
+			containerStyle={{ backgroundColor: item.backgroundColor }}>
 
-			{item.visitRegistered && <IconFontisto
-				name={"check"}
-				size={20}
-				color={"green"}
-			/>}
+			<View style={styles.icons}>
+				{item.visitRegistered && <IconFontisto
+					name={"check"}
+					size={20}
+					color={item.color ? item.color : null}
+				/>}
+				{item.additionalServiceParameters.ГлазаЗакапаны && <FontAwesome
+					name={"eyedropper"}
+					size={20}
+					color={item.color ? item.color : null}
+				/>}
+			</View>
 
 			<ListItem.Content>
-				<ListItem.Title  >
+				<ListItem.Title style={{ color: item.color ? item.color : null}}>
 					{item.timeOfReceipt} {item.presentationPatient}
 				</ListItem.Title>
-
-				<ListItem.Subtitle style={{ fontSize: 10, fontFamily: 'Roboto', fontWeight: "bold" }}>
+				<ListItem.Subtitle style={[styles.iconssubtitle, { color: item.color ? item.color : null}]}>
 					{item.nomenclature.name}
 				</ListItem.Subtitle>
 			</ListItem.Content>
@@ -107,7 +114,7 @@ export const Main = ({ navigation, route }) => {
 	doctorsFilter.unshift({ guid: 'all', name: 'Все' });
 
 	return (
-		<View style={{ flex: 1, backgroundColor: "white", padding: 2 }}>
+		<View style={styles.container}>
 			<View style={{ paddingLeft: 6, paddingRight: 6, backgroundColor: "white", justifyContent: "space-between", marginTop: 10, marginBottom: 5, flexDirection: 'row' }}>
 				<AppInputDate textStyle={{ fontSize: 20 }} date={date} setDate={(value) => { setFild("date", value) }} showTime={false} />
 				<Button title="Медицинский документ" onPress={() => { navigation.navigate('MedicalDocument') }} />
@@ -163,14 +170,20 @@ export const Main = ({ navigation, route }) => {
 
 const styles = StyleSheet.create(
 	{
+		container: {
+			flex: 1,
+			backgroundColor: "white",
+			padding: 2
+		},
+		icons: {
+			flexDirection: 'column'
+		},
 		contentContainer: {
 			padding: 10,
 		},
-
 		wraperDoctorItem: {
 			padding: 5,
 		},
-
 		doctorItem: {
 			borderWidth: 1,
 			width: 170,
@@ -181,13 +194,11 @@ const styles = StyleSheet.create(
 			backgroundColor: "white",
 			padding: 4
 		},
-
 		selectDoctorItem: {
 			backgroundColor: THEME.SELECT_COLOR,
 			color: 'white',
 			borderWidth: 0
 		},
-
 		doctorItemText: {
 			textAlign: 'center',
 			textAlignVertical: 'center',
@@ -197,12 +208,10 @@ const styles = StyleSheet.create(
 			height: "100%",
 
 		},
-
 		selectdoctorItemText: {
 			color: 'white',
 			fontWeight: 'bold'
 		},
-
 		titleStyle: {
 			fontSize: 12,
 			marginLeft: 10,
@@ -211,6 +220,11 @@ const styles = StyleSheet.create(
 		periodSelection: {
 			marginTop: 50,
 		},
+		subtitle: {
+			fontSize: 10,
+			fontFamily: 'Roboto',
+			fontWeight: "bold"
+		}
 	}
 )
 

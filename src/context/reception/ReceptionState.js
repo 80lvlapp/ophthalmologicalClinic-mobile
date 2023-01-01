@@ -73,7 +73,7 @@ export const ReceptionState = ({ children }) => {
         date: moment().toDate(),
         fDoctor: "",
         fNamePatient: "",
-    
+
         fildSort: "time",
         firstOpen: true,
 
@@ -230,7 +230,7 @@ export const ReceptionState = ({ children }) => {
         dispatch({ type: SERVICES_REQUEST });
 
         const response = await getTestConnection();
-        
+
         try {
             const response = await authAxios.post('/?typerequest=getAllServicesForPatient', { guidPatient });
             const { services, patientParameters } = response.data;
@@ -442,125 +442,25 @@ export const ReceptionState = ({ children }) => {
 
     }
 
-    const EditPhoto = async (imageItem) => {
-/*
-        dispatch({ type: DOWNLOAD_EDIPHOTO_REQUEST });
+    const uploadPhoto = async (photoItem, endhandler = null, successHandler = null) => {
 
-        const fileName = uuid.v4();
-        const SourceImage = getSourceImage(imageItem['guidFullPhoto'], imageItem.version);
-        const path = `${RNFS.DocumentDirectoryPath}/${fileName}.jpeg`;
-        const headers = SourceImage.headers;
-
-        const options = {
-            fromUrl: SourceImage.uri,
-            toFile: path,
-            headers: headers
+    
+        if (! await RNFS.exists(photoItem.uri)) {
+            console.log("нет файлика");
         }
-
-        try {
-
-            const response = await RNFS.downloadFile(options);
-            return response.promise.then(res => {
-
-                dispatch({ type: DOWNLOAD_EDIPHOTO_SUCCESS });
-                console.log(path);
-                console.log(headers);
-
-                PhotoEditor.Edit({
-                    path: path,
-
-                    onCancel: () => { },
-                    onDone: (result) => {
-
-                        const imageUpload = { ...imageItem, filepath: path, version: uuid.v4(), guid: imageItem.guidFullPhoto, idFile: uuid.v4(), loading: false }
-                        const successHandler = () => {
-                            const newpatientGallery = state.patientGallery.map(item => item.guidFullPhoto == imageUpload.guidFullPhoto ? imageUpload : item);
-                            setFild("patientGallery", newpatientGallery);
-                        }
-
-                        uploadPhoto(imageUpload, null, successHandler);
-
-                    },
-                })
-            }).catch(error => dispatch({ type: DOWNLOAD_EDIPHOTO_FAILURE, payload: error.toString() }))
-
-        } catch (error) {
-            dispatch({ type: DOWNLOAD_EDIPHOTO_FAILURE, payload: error.toString() });
-        }
-        */
-    }
-
-    const sharePhoto = async (imageItems) => {
-        /*
-
-        dispatch({ type: SHARE_EDIPHOTO_REQUEST });
-
-        let urls = [];
-
-        let i;
-        for (i = 0; i < imageItems.length; i++) {
-
-            console.log(i);
-            let imageItem = imageItems[i];
-
-            const fileName = uuid.v4();
-            const SourceImage = getSourceImage(imageItem['guidFullPhoto'], imageItem.version);
-            const path = `${RNFS.DocumentDirectoryPath}/${fileName}.jpeg`;
-            const headers = SourceImage.headers;
-
-            const options = {
-                fromUrl: SourceImage.uri,
-                toFile: path,
-                headers: headers
-            }
-
-            try {
-                const response = await RNFS.downloadFile(options);
-
-                response.promise.then(res => RNFS.readFile(path, 'base64'))
-                    .then(base64Data => {
-                        const base64DataUrl = `data:image/jpeg;base64,` + base64Data;
-
-                        urls.push(base64DataUrl);
-                        RNFS.unlink(path);
-
-                        if (urls.length == imageItems.length) {
-                            Share.open({ urls });
-                            dispatch({ type: SHARE_EDIPHOTO_SUCCESS });
-                        }
-                    }
-                    ).catch(error => dispatch({ type: SHARE_EDIPHOTO_FAILURE, payload: error.toString() }))
-
-            } catch (error) {
-                dispatch({ type: SHARE_EDIPHOTO_FAILURE, payload: error.toString() });
-            }
-        }
-        */
-    }
-
-    const uploadPhoto = async (currentPhoto, endhandler = null, successHandler = null) => {
-
-        if (! await RNFS.exists(currentPhoto.filepath)) {
-            if (successHandler) {
-                successHandler();
-                return undefined;
-            }
-            if (endhandler) {
-                endhandler();
-            }
-        }
-
+      
+        
         try {
             var data = new FormData();
             data.append('photo_service', {
-                uri: "file://" + currentPhoto.filepath,
+                uri: photoItem.uri,
                 name: 'photo.jpg',
                 type: 'image/jpg'
             })
 
-            data.append('photo_service_meta', JSON.stringify({ ...currentPhoto }))
+            data.append('photo_service_meta', JSON.stringify({ ...photoItem }))
 
-            const response = await fetch(`${getApiUrl()}?typerequest=uploadPhoto&idFile=${currentPhoto.idFile}`, {
+            const response = await fetch(`${getApiUrl()}?typerequest=uploadPhoto`, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'multipart/form-data',
@@ -585,7 +485,7 @@ export const ReceptionState = ({ children }) => {
         }
         catch (e) {
             console.log(e);
-            console.log("Ошибка отправки..........................!!!!!!!!!!!!!!!!!!");
+            console.log("Ошибка отправки!!!");
             setFild("errorText", e.toString());
         }
 
@@ -653,8 +553,6 @@ export const ReceptionState = ({ children }) => {
 
     const changeFavoritePhotoGrid = async (imageItems, IncludedInFavoriteGallery) => {
 
-
-
         if (IncludedInFavoriteGallery) {
 
             if (imageItems.length > 4) {
@@ -711,7 +609,7 @@ export const ReceptionState = ({ children }) => {
             } catch (error) {
 
                 dispatch({ type: CHANGE_FAVORITE_FAILURE, payload: error.toString() });
-            
+
             }
 
         }
@@ -855,7 +753,7 @@ export const ReceptionState = ({ children }) => {
         currentPatient: state.currentPatient,
         fDoctor: state.fDoctor,
         fNamePatient: state.fNamePatient,
-    
+
         fildSort: state.fildSort,
         currentMedicalCard: state.currentMedicalCard,
 
@@ -923,9 +821,7 @@ export const ReceptionState = ({ children }) => {
         openHTML,
         setPhoto,
         uploadPhoto,
-        EditPhoto,
         openService,
-        sharePhoto,
         changeFavorite,
         openTags,
         saveComent,

@@ -3,19 +3,10 @@ import { set } from 'date-fns';
 import React, { useState, useEffect, useContext, useCallback, useRef } from 'react';
 import { Text, View, TouchableOpacity, StyleSheet, Dimensions, Vibration, StatusBar } from 'react-native';
 import { Image } from 'react-native-elements';
-// import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-//import {
-//Camera,
-//useCameraDevices,
-//  useFrameProcessor,
-//} from 'react-native-vision-camera';
-
 import { CaptureButton } from './ui/CaptureButton';
-// import Reanimated, { } from 'react-native-reanimated';
 import { TapGestureHandler } from 'react-native-gesture-handler';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import { THEME } from '../themes';
-//import Orientation from 'react-native-orientation';
 import { ReceptionContext } from '../context/reception/ReceptionContext';
 import { useFocusEffect } from '@react-navigation/native';
 import uuid from 'react-native-uuid';
@@ -23,7 +14,7 @@ import Orientation from 'react-native-orientation-locker';
 
 export const AppCamera = ({ route, navigation }) => {
 
-    /*
+
 
     const { setPhoto, arrayCameraPhoto, setFild } = useContext(ReceptionContext);
 
@@ -33,6 +24,7 @@ export const AppCamera = ({ route, navigation }) => {
     useEffect(() => {
         setFild("arrayCameraPhoto", [])
     }, []);
+
 
     const [cameraPermission, setCameraPermission] = useState(null);
     const [cameraPosition, setCameraPosition] = useState('back');
@@ -88,14 +80,6 @@ export const AppCamera = ({ route, navigation }) => {
 
     useFocusEffect(
         React.useCallback(() => {
-
-            // Orientation.getDeviceOrientation((deviceOrientation) => {
-            //     console.log("Current Device Orientation: ", deviceOrientation);
-            // });
-
-
-
-            //Orientation.lockToPortrait();
             permisionFunction();
             console.log("useFocusEffect");
 
@@ -162,12 +146,12 @@ export const AppCamera = ({ route, navigation }) => {
     if (device == null) return <View />
 
     // const supportsFlash = device?.hasFlash ?? false;
-        */
+
 
     return (
         <View style={{ flex: 1 }}>
-            {/*
-          
+
+
             <TapGestureHandler onHandlerStateChange={({ nativeEvent }) => {
 
                 if (device?.supportsFocus) {
@@ -190,7 +174,7 @@ export const AppCamera = ({ route, navigation }) => {
 
                 </Camera>
             </TapGestureHandler>
-        
+
 
             <CaptureButton
                 style={currentOrientation === "PORTRAIT" || !currentOrientation ? styles.captureButton : styles.captureButtonLandscape}
@@ -248,8 +232,6 @@ export const AppCamera = ({ route, navigation }) => {
                     <View style={styles.pointCenter} />
                 </View>
             ) : null}
-
-                */}
 
         </View>
     )
