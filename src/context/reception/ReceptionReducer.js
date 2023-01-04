@@ -188,6 +188,7 @@ export const ReceptionReducer = (state, action) => {
                     return item;  
                 }
             }) 
+            newState.comment = '';
             return newState;
         case SAVE_COMENT_FAILURE:
             newState.saveComentLoading = false;

@@ -9,6 +9,15 @@
 		</Type>
 		<IsFolder>false</IsFolder>
 	</Item>
+	<Item id="5a459d41-0666-4f36-9b4b-4ff8c058b9e1">
+		<Name>НачатаДиагностика</Name>
+		<Code>000000003</Code>
+		<Description>Начата диагностика</Description>
+		<Type>
+			<v8:Type>xs:boolean</v8:Type>
+		</Type>
+		<IsFolder>false</IsFolder>
+	</Item>
 	<Item id="608ea502-cee8-40a2-b2a1-74e19478e19b">
 		<Name>ОбследованиеЗавершено</Name>
 		<Code>000000002</Code>
