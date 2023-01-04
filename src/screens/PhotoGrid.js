@@ -28,9 +28,6 @@ export const PhotoGrid = ({ navigation, route }) => {
     else if (typesGallery == "PatientServiceGallery") {
       title = 'Галерея пациента по услуге';
     }
-    else if (typesGallery == "PatientFavoritesGallery") {
-      title = 'Галерея пациента (до и после)';
-    }
     else {
       title = '';
     }
@@ -135,14 +132,9 @@ export const PhotoGrid = ({ navigation, route }) => {
             }
             onProgress={(e) => {
 
-              if (typesGallery != "PatientFavoritesGallery") {
-                return;
-              }
-
               const p = Number((e.nativeEvent.loaded / e.nativeEvent.total).toFixed(1));
 
               if (p != progressState) {
-                console.log(p);
                 setProgressState(p);
               }
 
@@ -157,18 +149,11 @@ export const PhotoGrid = ({ navigation, route }) => {
           {newItem.select == true && (<MaterialCommunityIcons style={{ zIndex: 1000, position: 'absolute', top: 20, right: 20 }}
             name='check-circle' size={30} color={THEME.MAIN_COLOR} />)}
 
-          {typesGallery != "PatientFavoritesGallery" && newItem.IncludedInFavoriteGallery && <AntDesignIcon style={{ zIndex: 1000, position: 'absolute', top: 20, left: 20 }}
-            name='star' size={30} color={"white"} />}
-
-
-          {typesGallery != "PatientFavoritesGallery" && !newItem.IncludedInFavoriteGallery && <AntDesignIcon style={{ zIndex: 1000, position: 'absolute', top: 20, left: 20 }}
-            name='staro' size={30} color={"white"} />}
-
+         
 
         </TouchableOpacity>
 
-        {(progressState !== undefined && progressState != 1 && typesGallery === "PatientFavoritesGallery") && <LinearProgress color="primary" variant='determinate' value={progressState} style={{ height: 10 }} />}
-
+       
 
       </View>
     )
@@ -198,7 +183,7 @@ export const PhotoGrid = ({ navigation, route }) => {
         },
         { height: patientGallery.length < 3 ? itemHeight : itemHeight / 2 },
       ]}
-      data={getPhotoSourcesFromId(patientGallery, typesGallery == 'PatientFavoritesGallery' ? 'guidFullPhoto' : 'guidPreview')}
+      data={getPhotoSourcesFromId(patientGallery, 'guidPreview')}
       renderItem={renderItem}
       refreshing={loadingPatientGallery}
       numColumns={2}
@@ -260,7 +245,7 @@ export const PhotoGrid = ({ navigation, route }) => {
         />
       </TouchableOpacity>
 
-      {typesGallery != "PatientFavoritesGallery" && !deletePhotoLoading && <TouchableOpacity
+      {!deletePhotoLoading && <TouchableOpacity
         onPress={() => { createAlertDeletePhotos(patientGallery.filter(item => item.select)) }}>
         <MaterialCommunityIcons
           name='file-image-remove'
@@ -274,76 +259,7 @@ export const PhotoGrid = ({ navigation, route }) => {
         color="white" />}
 
 
-      {!loadingChangeFavorite && <TouchableOpacity
-        onPress={() => {
-          if (typesGallery === "PatientFavoritesGallery") {
-            changeFavorite(patientGallery.filter(item => item.select), true);
-          } else {
-            changeFavoritePhotoGrid(patientGallery.filter(item => item.select), true);
-          }
-
-        }}>
-        <AntDesignIcon
-
-          name='star'
-          size={25}
-          color={"white"}
-        />
-      </TouchableOpacity>}
-
-
-      {loadingChangeFavorite && <ActivityIndicator
-        size="large"
-        color="white" />}
-
-      {!loadingChangeFavorite && <TouchableOpacity
-        onPress={() => {
-          if (typesGallery === "PatientFavoritesGallery") {
-
-            changeFavorite(patientGallery.filter(item => item.select), false);
-
-          } else {
-
-            Alert.alert(
-              "Очистить галерею до и после?",
-              "",
-              [
-                {
-                  text: "Отмена",
-                  style: "cancel"
-                },
-
-                { text: "OK", onPress: () => changeFavoritePhotoGrid([], false) }
-
-              ]);
-          }
-        }}>
-
-        <AntDesignIcon
-
-          name={typesGallery === "PatientFavoritesGallery" ? "staro" : "delete"}
-          size={25}
-          color={"white"}
-        />
-      </TouchableOpacity>}
-
-
-      {loadingChangeFavorite && <ActivityIndicator
-        size="large"
-        color="white" />}
-
-      {!loadingSharefile && <TouchableOpacity onPress={() => sharePhoto(patientGallery.filter(item => item.select))}>
-        <FontAwesome5Icon
-          name='share-alt'
-          size={25}
-          color={"white"}
-        />
-      </TouchableOpacity>}
-
-      {loadingSharefile && <ActivityIndicator
-        size="large"
-        color="white" />}
-
+      
 
     </View>}
 

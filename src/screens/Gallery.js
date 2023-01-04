@@ -1,18 +1,15 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator, Dimensions, Alert } from "react-native";
 import ImageView from 'react-native-image-zoom-viewer';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import { ReceptionContext } from '../context/reception/ReceptionContext';
 import { ListItem, Card } from 'react-native-elements';
 import { THEME } from '../themes';
 import { EmptyListMessage } from '../components/EmptyListMessage';
-import GestureRecognizer from 'react-native-swipe-gestures';
 
 export const Gallery = ({ navigation, route }) => {
 
-  const { patientGallery, getPhotoSourcesFromId, setFild, indexpatientGallery, EditPhoto, sharePhoto, loadingEditFile, loadingSharefile, loadingChangeFavorite, changeFavorite, openTags, loadingChangeFavoriteError, deletePhotoLoading, deletePhotos } = useContext(ReceptionContext);
+  const { patientGallery, getPhotoSourcesFromId, setFild, indexpatientGallery, loadingChangeFavoriteError, deletePhotoLoading, deletePhotos } = useContext(ReceptionContext);
   const imageUrls = getPhotoSourcesFromId(patientGallery, "guidFullPhoto");
   const [viewMetadata, setViewMetada] = useState(false);
 
@@ -61,65 +58,6 @@ export const Gallery = ({ navigation, route }) => {
         justifyContent: "space-around",
         
         flex:1}}>
-
-          {!loadingEditFile && <TouchableOpacity
-
-            onPress={() => EditPhoto(itemImage)} >
-            <MaterialCommunityIcons
-              name='image-edit'
-              size={25}
-              color={"white"}
-            />
-
-          </TouchableOpacity>}
-
-
-          {loadingEditFile && <ActivityIndicator
-            size="large"
-            color="white" />}
-
-          {!loadingSharefile && <TouchableOpacity onPress={() => sharePhoto([itemImage])}>
-            <Icon
-              name='share-alt'
-              size={25}
-              color={"white"}
-            />
-          </TouchableOpacity>}
-
-          {loadingSharefile && <ActivityIndicator
-            size="large"
-            color="white" />}
-
-          {loadingChangeFavorite == false && <TouchableOpacity onPress={() => { changeFavorite([itemImage],!itemImage.IncludedInFavoriteGallery) }}>
-            {!itemImage.IncludedInFavoriteGallery && <AntDesignIcon
-
-              name='staro'
-              size={25}
-              color={"white"}
-            />}
-
-            {itemImage.IncludedInFavoriteGallery && <AntDesignIcon
-
-              name='star'
-              size={25}
-              color={"white"}
-            />}
-
-
-          </TouchableOpacity>}
-
-          {loadingChangeFavorite && <ActivityIndicator
-            size="large"
-            color="white" />}
-
-
-          <TouchableOpacity onPress={() => openTags(itemImage, navigation)}>
-            <MaterialCommunityIcons
-              name='pound'
-              size={30}
-              color={"white"}
-            />
-          </TouchableOpacity>
 
           {!deletePhotoLoading && <TouchableOpacity
             onPress={() => {createThreeButtonAlert(itemImage, currentIndex) }}>

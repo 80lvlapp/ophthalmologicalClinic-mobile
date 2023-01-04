@@ -194,13 +194,11 @@ export const PatientService = ({ navigation, route }) => {
 
 
                 </View>
+
                 <Divider />
 
                 <Input
-
                     containerStyle={{ marginTop: 10 }}
-
-
                     label='Комментарий'
                     value={dataService.comment}
                     onChangeText={(comment) => setFild("dataService", { ...dataService, comment })}
@@ -252,8 +250,6 @@ export const PatientService = ({ navigation, route }) => {
 
                 <Card.Divider style={{ marginTop: 10 }} />
 
-
-
                 {(errorComentloading != "") && <TextError textError={errorComentloading} />}
 
                 <Button type="solid"
@@ -273,6 +269,7 @@ export const PatientService = ({ navigation, route }) => {
                     }}
                     onPress={() => captureImage('photo')}
                     title=" Сделать фото" />
+
 
 
             </View>

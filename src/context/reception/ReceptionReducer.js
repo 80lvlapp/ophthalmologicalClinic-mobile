@@ -110,7 +110,7 @@ export const ReceptionReducer = (state, action) => {
         case GET_HTML_FAILURE:
             return { ...state, errorHTML: action.payload, loadingHTML: false }
         case OPEN_PATIENT:
-            return { ...state, currentPatient: action.payload.patient, currentMedicalCard: action.payload.medicalCard }
+            return { ...state, curentGuidService:action.payload.guidService, currentPatient: action.payload.patient, currentMedicalCard: action.payload.medicalCard }
 
         case OPEN_SERVICE:
             return { ...state, currentService: action.payload.service }
@@ -175,20 +175,19 @@ export const ReceptionReducer = (state, action) => {
             newState.loadingChangeFavorite = false;
             newState.loadingChangeFavoriteError = action.payload;
             return newState;
-
-        case GET_TAGS_REQUEST:
-            return { ...state, loadingTags: true, errorGetTags: '', arrayTagsByPhoto: [], allArrayTags: [], typeChangeTag: '', curentGuidTag: '', tagName: '' }
-        case GET_TAGS_SUCCESS:
-            return { ...state, arrayTagsByPhoto: action.payload.arrayTagsByPhoto, allArrayTags: action.payload.allArrayTags, loadingTags: false }
-        case GET_TAGS_FAILURE:
-            return { ...state, errorGetTags: action.payload, loadingTags: false }
-        case SAVE_COMENT_REQUEST:
+      case SAVE_COMENT_REQUEST:
             newState.saveComentLoading = true;
             newState.errorComentloading = "";
             return newState;
         case SAVE_COMENT_SUCCESS:
             newState.saveComentLoading = false;
-            newState.dataService.historyComments = [action.payload, ...state.dataService.historyComments,];
+            newState.services = newState.services.map(item=>{
+                if (item.guidService == newState.curentGuidService) {  
+                    return  {...item, historyComments: [action.payload, ...item.historyComments]} 
+                } else {
+                    return item;  
+                }
+            }) 
             return newState;
         case SAVE_COMENT_FAILURE:
             newState.saveComentLoading = false;
