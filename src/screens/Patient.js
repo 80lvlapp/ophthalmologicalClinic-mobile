@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Button, Divider, ListItem, Input} from 'react-native-elements';
+import { Button, Divider, ListItem, Input, CheckBox } from 'react-native-elements';
 import { EmptyListMessage } from '../components/EmptyListMessage';
 import UseOpenGroups from '../hooks/UseOpenGroups';
 
@@ -21,7 +21,7 @@ export const callNumber = phone => {
 
 export const Patient = ({ navigation, route }) => {
 
-	const { saveComentLoading, currentPatient, openHTML, loadingServices, services, comment, errorServices, getServices, openPatientGallery, currentMedicalCard, setFild, openService, patientParameters, curentGuidService,saveComent } = useContext(ReceptionContext);
+	const { saveComentLoading, currentPatient, openHTML, loadingServices, services, comment, errorServices, getServices, openPatientGallery, currentMedicalCard, setFild, openService, patientParameters, curentGuidService, saveComent, saveValueParametr } = useContext(ReceptionContext);
 	const [сhangesOpeningGroups, groupIsOpen] = UseOpenGroups();
 	const curentService = services.find(item => item.guidService == curentGuidService);
 
@@ -127,9 +127,9 @@ export const Patient = ({ navigation, route }) => {
 						</ListItem.Content>
 					</>
 				}
-			
+
 				isExpanded={groupIsOpen('Patient')}
-				onPress={() => {сhangesOpeningGroups('Patient')}}
+				onPress={() => { сhangesOpeningGroups('Patient') }}
 
 				containerStyle={{ margin: 0, paddingHorizontal: 10 }}
 			>
@@ -159,7 +159,7 @@ export const Patient = ({ navigation, route }) => {
 
 			{errorServices !== "" && <TextError textError={errorServices} />}
 
-			
+
 
 			<ListItem.Accordion
 
@@ -172,7 +172,7 @@ export const Patient = ({ navigation, route }) => {
 				}
 
 				isExpanded={groupIsOpen('Services')}
-				onPress={() => {сhangesOpeningGroups('Services')}}
+				onPress={() => { сhangesOpeningGroups('Services') }}
 
 
 				containerStyle={{ margin: 0, paddingHorizontal: 10 }}
@@ -201,9 +201,9 @@ export const Patient = ({ navigation, route }) => {
 				}
 				containerStyle={{ margin: 0, paddingHorizontal: 10 }}
 				isExpanded={groupIsOpen('HistoryComments')}
-				onPress={() => {сhangesOpeningGroups('HistoryComments')}}
+				onPress={() => { сhangesOpeningGroups('HistoryComments') }}
 
-				>
+			>
 				{curentService && curentService.historyComments.map((itemStor, i) => (
 					<ListItem key={itemStor.date} bottomDivider>
 						<ListItem.Content>
@@ -211,34 +211,61 @@ export const Patient = ({ navigation, route }) => {
 							<ListItem.Subtitle>{itemStor.comment}</ListItem.Subtitle>
 						</ListItem.Content>
 						<ListItem.Chevron />
-				</ListItem>))}
+					</ListItem>))}
 
 			</ListItem.Accordion>
+			<View style={styles.commentForm}>
 
-			<Input
-				containerStyle={{ marginTop: 10 }}
-				label='Комментарий'
-				 value={comment}
-				onChangeText={(comment) => setFild("comment", comment)}
-				multiline={true}
-			/>
-			<Button
-				title="Сохранить комментарий"
-				buttonStyle={{
-					backgroundColor: THEME.BUTTON_COLOR,
-					borderRadius: 5,
-					marginTop: 5,
-					marginBottom: 20
+				<View style={styles.commentFormInput}>
+					<Input
+						containerStyle={{ marginTop: 10 }}
+						label='Комментарий'
+						value={comment}
+						onChangeText={(comment) => setFild("comment", comment)}
+						multiline={true}
+					/>
+				</View>
 
-				}}
-				containerStyle={{
-					marginVertical: 5,
-				}}
+				<View style={styles.commentFormButton}>
 
-				onPress={() => saveComent()}
-				loading={saveComentLoading}
-			/>
-			
+					<Button
+						title="Сохранить комментарий"
+						buttonStyle={{
+							backgroundColor: THEME.BUTTON_COLOR,
+							borderRadius: 5,
+							marginTop: 5,
+							marginBottom: 20
+
+						}}
+						containerStyle={{
+							marginVertical: 5,
+						}}
+
+
+						onPress={() => saveComent()}
+						loading={saveComentLoading}
+					>
+
+					</Button>
+
+				</View>
+
+			</View>
+
+			<View style={styles.options}>
+
+				{curentService && curentService.additionalServiceParameters.map((item) =>
+				(<CheckBox
+					left
+					key={item.id}
+					title={item.name}
+					checked={item.value}
+					onPress={() => {
+						saveValueParametr(item.id, !item.value, curentGuidService);
+					}}
+				/>))}
+			</View>
+
 		</View>
 
 	);
@@ -247,12 +274,34 @@ export const Patient = ({ navigation, route }) => {
 
 const styles = StyleSheet.create(
 	{
+
+		commentForm: {
+			flexDirection: 'row',
+			alignItems: 'center'
+		},
+
+		commentFormInput: {
+			flexDirection: 'row',
+			flex: 0.9,
+		},
+
+		commentFormButton: {
+			flexDirection: 'row',
+			flex: 0.2,
+			paddingLeft: 2
+		},
+
 		titleStyle: {
 			fontSize: 12,
 			color: '#9c9c9c',
 			marginLeft: 10
 		},
 		sectionStyle: {
+			fontSize: 20,
+			fontWeight: 'bold'
+		},
+
+		options: {
 			fontSize: 20,
 			fontWeight: 'bold'
 		},

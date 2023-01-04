@@ -19,44 +19,30 @@ import {
     DOCTORSSCHEDULE_SORT,
     SET_FILD,
     OPEN_PATIENT,
-    ADD_PHOTO,
-    REMOVE_PHOTO,
     OPEN_SERVICE,
     SERVICE_DATA_REQUEST,
     SERVICE_DATA_SUCCESS,
     SERVICE_DATA_FAILURE,
-    DOWNLOAD_EDIPHOTO_REQUEST,
-    DOWNLOAD_EDIPHOTO_FAILURE,
-    DOWNLOAD_EDIPHOTO_SUCCESS,
-    SHARE_EDIPHOTO_REQUEST,
-    SHARE_EDIPHOTO_FAILURE,
-    SHARE_EDIPHOTO_SUCCESS,
-    CHANGE_FAVORITE_REQUEST,
-    CHANGE_FAVORITE_FAILURE,
-    CHANGE_FAVORITE_SUCCESS,
-    CLEARE_FAVORITE_SUCCESS,
-    GET_TAGS_REQUEST,
-    GET_TAGS_SUCCESS,
-    GET_TAGS_FAILURE,
     SAVE_COMENT_REQUEST,
     SAVE_COMENT_SUCCESS,
     SAVE_COMENT_FAILURE,
-    CHANGE_TAG_REQUEST,
-    CHANGE_TAG_SUCCESS,
-    CHANGE_TAG_FAILURE,
     DELETE_PHOTO_REQUEST,
     DELETE_PHOTO_SUCCESS,
     DELETE_PHOTO_FAILURE,
-    GET_LIST_PATIENTS_REQUEST, GET_LIST_PATIENTS_FAILURE, GET_LIST_PATIENTS_SUCCESS, SET_SEARCHTEXT_PATIENTS
+    GET_LIST_PATIENTS_REQUEST, 
+    GET_LIST_PATIENTS_FAILURE, 
+    GET_LIST_PATIENTS_SUCCESS, 
+    SET_SEARCHTEXT_PATIENTS,
+    SAVE_VALUE_PARAMETR_REQUEST,
+    SAVE_VALUE_PARAMETR_SUCCESS,
+    SAVE_VALUE_PARAMETR_FAILURE
 } from '../types';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import moment from 'moment';
-//import PhotoEditor from 'react-native-photo-editor';
 import RNFS from 'react-native-fs';
 import uuid from 'react-native-uuid';
-//import Share from 'react-native-share';
 import { min } from 'date-fns';
 
 export const ReceptionState = ({ children }) => {
@@ -91,15 +77,6 @@ export const ReceptionState = ({ children }) => {
         indexpatientGallery: 0,
         typesGallery: "",
 
-        loadingEditFile: false,
-        errorploadingEditFile: "",
-
-        loadingSharefile: false,
-        errorploadingSharefile: "",
-
-        loadingChangeFavorite: false,
-        loadingChangeFavoriteError: false,
-
         //HTML
         currentHTML: null,
         loadingHTML: false,
@@ -117,18 +94,6 @@ export const ReceptionState = ({ children }) => {
         loadingDataService: false,
         dataService: {},
 
-        //TAGS
-        arrayTagsByPhoto: [],
-        allArrayTags: [],
-
-        loadingTags: false,
-        curentPhoto: null,
-
-        tagName: '',
-        changeTagloading: false,
-        errorChangeTag: '',
-        typeChangeTag: '',
-        curentGuidTag: '',
         //coment
         saveComentLoading: false,
         errorComentloading: "",
@@ -136,17 +101,20 @@ export const ReceptionState = ({ children }) => {
         //deletePhoto
         deletePhotoLoading: false,
         errorDeletePhoto: "",
-
-
         errorText: "",
+    
         //seaech patient
-
         searchTextPatients: '',
         listPatients: [],
         loadingListPatients: false,
         errorloadingListPatients: '',
 
-        comment: ''
+
+         //save_value_parametr
+         saveValueParametrLoading: false,
+         errorSaveValueParametr: "",
+       
+         comment: ''
 
     };
 
@@ -312,35 +280,6 @@ export const ReceptionState = ({ children }) => {
     
     }
 
-    const getArrayPhotoFromAsyncStorage = async () => {
-        try {
-            arrayPhotostr = await AsyncStorage.getItem('arrayPhoto');
-            if (arrayPhotostr) {
-                return JSON.parse(arrayPhotostr);
-            }
-            return [];
-        } catch (e) {
-            return [];
-        }
-    }
-
-    const addArrayPhotoFromAsyncStorage = async (arrayPhoto) => {
-
-        const arrayPhotoAsyncStorage = await getArrayPhotoFromAsyncStorage();
-        const newArrayPhoto = [...arrayPhotoAsyncStorage, ...arrayPhoto];
-        await AsyncStorage.setItem('arrayPhoto', JSON.stringify(newArrayPhoto));
-        return newArrayPhoto;
-    }
-
-    const removeArrayPhotoFromAsyncStorage = async (item) => {
-
-        const arrayPhoto = await getArrayPhotoFromAsyncStorage();
-        const newArrayPhoto = arrayPhoto.filter(itemStor => itemStor.filepath != item.filepath);
-        await AsyncStorage.setItem('arrayPhoto', JSON.stringify(newArrayPhoto));
-        dispatch({ type: REMOVE_PHOTO, payload: item });
-        return newArrayPhoto;
-
-    }
 
     const uploadPhoto = async (photoItem, endhandler = null, successHandler = null) => {
 
@@ -399,124 +338,8 @@ export const ReceptionState = ({ children }) => {
         return arrayId.map(item => getSourceImage(item[typeUrl], item.version))
     }
 
-    const changeFavorite = async (imageItems, IncludedInFavoriteGallery, сlear = false) => {
-
-
-        if (imageItems.length > 4 && IncludedInFavoriteGallery) {
-            Alert.alert("В галерею до и после нельзя добавить более 4 фотографий");
-            return;
-        }
-
-        const parameters = {
-            сlear,
-            arrayPhotos: imageItems.map((imageItem) => { return { ...imageItem, guid: imageItem.guidFullPhoto } }),
-            IncludedInFavoriteGallery,
-            guidPatient: state.currentPatient.guid
-        }
-
-        const createThreeButtonAlert = (error) =>
-            Alert.alert(
-                "Превышен лимит, \nочистить галерею до и после?",
-                "",
-                [
-                    {
-                        text: "Отмена",
-                        onPress: () => dispatch({ type: CHANGE_FAVORITE_FAILURE, payload: error }),
-                        style: "cancel"
-                    },
-
-                    { text: "OK", onPress: () => changeFavorite(imageItems, IncludedInFavoriteGallery, true) }
-
-                ]);
-
-
-        dispatch({ type: CHANGE_FAVORITE_REQUEST });
-        try {
-
-            const response = await authAxios.post('/?typerequest=incExcPhotoInFavoriteGallery', parameters);
-            const { result, error, overflow } = response.data;
-
-            if (error) {
-                if (overflow) {
-                    createThreeButtonAlert(error);
-                } else {
-                    dispatch({ type: CHANGE_FAVORITE_FAILURE, payload: error });
-                }
-            } else {
-                dispatch({ type: CHANGE_FAVORITE_SUCCESS, payload: { IncludedInFavoriteGallery, imageItems } });
-            }
-
-        } catch (error) {
-            dispatch({ type: CHANGE_FAVORITE_FAILURE, payload: error.toString() });
-        }
-    }
-
-    const changeFavoritePhotoGrid = async (imageItems, IncludedInFavoriteGallery) => {
-
-        if (IncludedInFavoriteGallery) {
-
-            if (imageItems.length > 4) {
-                Alert.alert("Максимальное кол-во фото в До-После 4!");
-                return;
-            }
-
-            const parameters = {
-                сlear: false,
-                arrayPhotos: imageItems.map((imageItem) => { return { ...imageItem, guid: imageItem.guidFullPhoto } }),
-                IncludedInFavoriteGallery: true,
-                guidPatient: state.currentPatient.guid
-            }
-
-            dispatch({ type: CHANGE_FAVORITE_REQUEST });
-            try {
-
-                const response = await authAxios.post('/?typerequest=incExcPhotoInFavoriteGallery', parameters);
-                const { result, error, overflow } = response.data;
-
-                if (error) {
-                    if (overflow) {
-                        dispatch({ type: CHANGE_FAVORITE_FAILURE, payload: error });
-                        Alert.alert("Максимальное кол-во фото в До-После 4!");
-                    } else {
-                        dispatch({ type: CHANGE_FAVORITE_FAILURE, payload: error });
-                    }
-                } else {
-                    dispatch({ type: CHANGE_FAVORITE_SUCCESS, payload: { IncludedInFavoriteGallery, imageItems } });
-                }
-
-            } catch (error) {
-                dispatch({ type: CHANGE_FAVORITE_FAILURE, payload: error.toString() });
-            }
-
-        } else {
-
-            const parameters = {
-                сlear: true,
-                arrayPhotos: [],
-                IncludedInFavoriteGallery: true,
-                guidPatient: state.currentPatient.guid
-            }
-
-            dispatch({ type: CHANGE_FAVORITE_REQUEST });
-            try {
-
-                const response = await authAxios.post('/?typerequest=incExcPhotoInFavoriteGallery', parameters);
-                const { result, error, overflow } = response.data;
-
-
-                dispatch({ type: CLEARE_FAVORITE_SUCCESS });
-
-            } catch (error) {
-
-                dispatch({ type: CHANGE_FAVORITE_FAILURE, payload: error.toString() });
-
-            }
-
-        }
-
-
-    }
-
+   
+   
     const deletePhotos = async (imageItems, index) => {
 
         const parameters = imageItems.map((imageItem) => { return { ...imageItem, guid: imageItem.guidFullPhoto } })
@@ -567,30 +390,7 @@ export const ReceptionState = ({ children }) => {
         }
     }
 
-    const changeTag = async (guidTag = '', nameTag = '', remove = false) => {
-
-        let typeChangeTag = "";
-        if (remove) {
-            typeChangeTag = "remove";
-        } else if (guidTag != '') {
-            typeChangeTag = "add";
-        } else {
-            typeChangeTag = "addNew";
-        }
-
-        dispatch({ type: CHANGE_TAG_REQUEST, payload: { typeChangeTag, curentGuidTag: guidTag } });
-        try {
-
-            const response = await authAxios.post(`/?typerequest=${remove ? 'deleteTagsByPhoto' : 'addNewTagsByPhoto'}`, { guidTag, nameTag, guidPhoto: state.curentPhoto.guidFullPhoto });
-            const { allArrayTags, arrayTagsByPhoto } = response.data;
-            dispatch({ type: CHANGE_TAG_SUCCESS, payload: { allArrayTags, arrayTagsByPhoto } });
-
-        } catch (error) {
-            dispatch({ type: CHANGE_TAG_FAILURE, payload: error.toString() });
-        }
-    }
-
-
+   
 
     const executeGetListPatients = async (additionalLoading = false, searchTextPatients = "") => {
 
@@ -633,6 +433,24 @@ export const ReceptionState = ({ children }) => {
 
     }
 
+
+    const saveValueParametr = async (id, value, guidService) => {
+
+        dispatch({ type: SAVE_VALUE_PARAMETR_REQUEST });
+        try {
+
+            const parameters = {
+                id, value, guidService
+            }
+            
+            const response = await authAxios.post('/?typerequest=saveValueParametr', parameters);
+            dispatch({ type: SAVE_VALUE_PARAMETR_SUCCESS, payload: parameters });
+          
+        } catch (error) {
+            dispatch({ type: SAVE_VALUE_PARAMETR_FAILURE, payload: error.toString() });
+        }
+    }
+
     return (<ReceptionContext.Provider value={{
         doctorsSchedule: state.doctorsSchedule,
         doctors: state.doctors,
@@ -642,64 +460,42 @@ export const ReceptionState = ({ children }) => {
         currentPatient: state.currentPatient,
         fDoctor: state.fDoctor,
         fNamePatient: state.fNamePatient,
-
         fildSort: state.fildSort,
         currentMedicalCard: state.currentMedicalCard,
-
         date: state.date,
         loadingServices: state.loadingServices,
         services: state.services,
         errorServices: state.errorServices,
         patientParameters: state.patientParameters,
-
-
         loadingPatientGallery: state.loadingPatientGallery,
         patientGallery: state.patientGallery,
         errorpatientGallery: state.errorpatientGallery,
         indexpatientGallery: state.indexpatientGallery,
-
         currentHTML: state.currentHTML,
         loadingHTML: state.loadingHTML,
         errorHTML: state.errorHTML,
         titleHtml: state.titleHtml,
         arrayPhoto: state.arrayPhoto,
         currentService: state.currentService,
-
         arrayCameraPhoto: state.arrayCameraPhoto,
         loadingEditFile: state.loadingEditFile,
-
         errorDataService: state.errorDataService,
         loadingDataService: state.loadingDataService,
         dataService: state.dataService,
-        loadingSharefile: state.loadingSharefile,
-        loadingChangeFavorite: state.loadingChangeFavorite,
-
-        arrayTagsByPhoto: state.arrayTagsByPhoto,
-        allArrayTags: state.allArrayTags,
-
-        loadingTags: state.loadingTags,
-
         typesGallery: state.typesGallery,
-
         saveComentLoading: state.saveComentLoading,
         errorComentloading: state.errorComentloading,
-
-        typeChangeTag: state.typeChangeTag,
-        errorChangeTag: state.errorChangeTag,
-        curentGuidTag: state.curentGuidTag,
-
         deletePhotoLoading: state.deletePhotoLoading,
         errorDeletePhoto: state.errorDeletePhoto,
-
-        tagName: state.tagName,
-        loadingChangeFavoriteError: state.loadingChangeFavoriteError,
-
         searchTextPatients: state.searchTextPatients,
         listPatients: state.listPatients,
         loadingListPatients: state.loadingListPatients,
         errorloadingListPatients: state.errorloadingListPatients,
         comment:  state.comment,
         curentGuidService:state.curentGuidService,
+
+        saveValueParametrLoading: state.saveValueParametrLoading,
+        errorSaveValueParametr: state.errorSaveValueParametr,
 
         getDoctorsSchedule,
         sort,
@@ -712,16 +508,15 @@ export const ReceptionState = ({ children }) => {
         openHTML,
         uploadPhoto,
         openService,
-        changeFavorite,
-
+        
         saveComent,
-        changeTag,
         deletePhotos,
         getTestConnection,
         executeGetListPatients,
         setSearchTextListPatients,
-        changeFavoritePhotoGrid,
 
+        saveValueParametr,
+     
     }}>{children}</ReceptionContext.Provider>)
 
 }
