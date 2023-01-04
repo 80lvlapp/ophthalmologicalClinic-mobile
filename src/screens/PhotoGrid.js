@@ -6,16 +6,13 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const MARGIN = 1
 import { EmptyListMessage } from '../components/EmptyListMessage';
 import { THEME } from '../themes';
-import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import { LinearProgress } from 'react-native-elements';
-import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
+
 
 
 export const PhotoGrid = ({ navigation, route }) => {
 
-  const { loadingPatientGallery, patientGallery, errorpatientGallery, getPhotoSourcesFromId, currentPatient,
-    getPatientGallery, setFild, typesGallery, deletePhotos, changeFavorite, loadingChangeFavorite, deletePhotoLoading,
-    loadingSharefile, sharePhoto, changeFavoritePhotoGrid } = useContext(ReceptionContext);
+  const { loadingPatientGallery, patientGallery, getPhotoSourcesFromId, currentPatient,
+    getPatientGallery, setFild, typesGallery, deletePhotos, deletePhotoLoading, } = useContext(ReceptionContext);
   const [itemHeight, setItemHeight] = useState(0);
 
   React.useLayoutEffect(() => {

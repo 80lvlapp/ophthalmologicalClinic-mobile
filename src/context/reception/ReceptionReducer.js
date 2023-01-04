@@ -20,30 +20,19 @@ import {
     SERVICE_DATA_REQUEST,
     SERVICE_DATA_SUCCESS,
     SERVICE_DATA_FAILURE,
-    DOWNLOAD_EDIPHOTO_REQUEST,
-    DOWNLOAD_EDIPHOTO_FAILURE,
-    DOWNLOAD_EDIPHOTO_SUCCESS,
-    SHARE_EDIPHOTO_REQUEST,
-    SHARE_EDIPHOTO_FAILURE,
-    SHARE_EDIPHOTO_SUCCESS,
-    CHANGE_FAVORITE_REQUEST,
-    CHANGE_FAVORITE_FAILURE,
-    CHANGE_FAVORITE_SUCCESS,
-    CLEARE_FAVORITE_SUCCESS,
-    GET_TAGS_REQUEST,
-    GET_TAGS_SUCCESS,
-    GET_TAGS_FAILURE,
     SAVE_COMENT_REQUEST,
     SAVE_COMENT_SUCCESS,
     SAVE_COMENT_FAILURE,
-    CHANGE_TAG_REQUEST,
-    CHANGE_TAG_SUCCESS,
-    CHANGE_TAG_FAILURE,
     DELETE_PHOTO_REQUEST,
     DELETE_PHOTO_SUCCESS,
     DELETE_PHOTO_FAILURE,
-    GET_LIST_PATIENTS_REQUEST, GET_LIST_PATIENTS_FAILURE, GET_LIST_PATIENTS_SUCCESS, SET_SEARCHTEXT_PATIENTS
-
+    GET_LIST_PATIENTS_REQUEST,
+    GET_LIST_PATIENTS_FAILURE,
+    GET_LIST_PATIENTS_SUCCESS,
+    SET_SEARCHTEXT_PATIENTS,
+    SAVE_VALUE_PARAMETR_REQUEST,
+    SAVE_VALUE_PARAMETR_SUCCESS,
+    SAVE_VALUE_PARAMETR_FAILURE
 } from '../types'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -89,6 +78,31 @@ export const ReceptionReducer = (state, action) => {
             return { ...state, loadingServices: false, services: action.payload.services, patientParameters: action.payload.patientParameters }
         case SERVICES_FAILURE:
             return { ...state, loadingServices: false, sererrorServicesvices: action.payload }
+        case SAVE_VALUE_PARAMETR_REQUEST:
+            return { ...state, errorSaveValueParametr: "", saveValueParametrLoading: true }
+            
+        case SAVE_VALUE_PARAMETR_SUCCESS:
+            newState.services = newState.services.map(item => {
+                if (item.guidService == action.payload.guidService) {
+                    return {
+                        ...item, additionalServiceParameters: item.additionalServiceParameters.map((itemP) => {
+
+                            if (itemP.id == action.payload.id) {
+                                return { ...itemP, value: action.payload.value }
+                            } else {
+                                return itemP;
+                            }
+                        })
+                    }
+                } else {
+                    return item;
+                }
+            })
+            newState.saveValueParametrLoading = false;
+            return newState;
+
+        case SAVE_VALUE_PARAMETR_FAILURE:
+            return { ...state, errorSaveValueParametr: action.payload, saveValueParametrLoading: false }
         case SERVICE_DATA_REQUEST:
             return { ...state, errorDataService: "", loadingDataService: true, dataService: {}, errorComentloading: "", saveComentLoading: false }
         case SERVICE_DATA_SUCCESS:
@@ -110,7 +124,7 @@ export const ReceptionReducer = (state, action) => {
         case GET_HTML_FAILURE:
             return { ...state, errorHTML: action.payload, loadingHTML: false }
         case OPEN_PATIENT:
-            return { ...state, curentGuidService:action.payload.guidService, currentPatient: action.payload.patient, currentMedicalCard: action.payload.medicalCard }
+            return { ...state, curentGuidService: action.payload.guidService, currentPatient: action.payload.patient, currentMedicalCard: action.payload.medicalCard }
 
         case OPEN_SERVICE:
             return { ...state, currentService: action.payload.service }
@@ -121,98 +135,27 @@ export const ReceptionReducer = (state, action) => {
         case REMOVE_PHOTO:
             newState.arrayPhoto = newState.arrayPhoto.filter(item => item.filepath != action.payload.filepath);
             return newState;
-        case DOWNLOAD_EDIPHOTO_REQUEST:
-            newState.loadingEditFile = true;
-            newState.errorploadingSharefile = "";
-            return newState;
-        case DOWNLOAD_EDIPHOTO_FAILURE:
-            newState.loadingEditFile = false;
-            return newState
-        case DOWNLOAD_EDIPHOTO_SUCCESS:
-            newState.loadingEditFile = false;
-            newState.errorploadingEditFile = action.payload;
-            return newState;
 
-        case SHARE_EDIPHOTO_REQUEST:
-            newState.loadingSharefile = true;
-            newState.errorploadingSharefile = "";
-            return newState;
-        case SHARE_EDIPHOTO_FAILURE:
-            newState.loadingSharefile = false;
-            return newState
-        case SHARE_EDIPHOTO_SUCCESS:
-            newState.loadingSharefile = false;
-            newState.errorploadingSharefile = action.payload;
-            return newState;
-
-        case CHANGE_FAVORITE_REQUEST:
-            newState.loadingChangeFavorite = true;
-            newState.loadingChangeFavoriteError = "";
-            return newState;
-        case CHANGE_FAVORITE_SUCCESS:
-            newState.loadingChangeFavorite = false;
-            newState.patientGallery = state.patientGallery.map(item => {
-                if (action.payload.imageItems.find(itemF => itemF.guidFullPhoto == item.guidFullPhoto)) {
-                    return { ...item, IncludedInFavoriteGallery: action.payload.IncludedInFavoriteGallery }
-                } else {
-                    return item
-                }
-            })
-
-            return newState
-        case CLEARE_FAVORITE_SUCCESS:
-
-            newState.loadingChangeFavorite = false;
-            newState.patientGallery = state.patientGallery.map(item => {
-
-                return { ...item, IncludedInFavoriteGallery: false }
-
-            })
-
-            return newState
-
-        case CHANGE_FAVORITE_FAILURE:
-            newState.loadingChangeFavorite = false;
-            newState.loadingChangeFavoriteError = action.payload;
-            return newState;
-      case SAVE_COMENT_REQUEST:
+        case SAVE_COMENT_REQUEST:
             newState.saveComentLoading = true;
             newState.errorComentloading = "";
             return newState;
         case SAVE_COMENT_SUCCESS:
             newState.saveComentLoading = false;
-            newState.services = newState.services.map(item=>{
-                if (item.guidService == newState.curentGuidService) {  
-                    return  {...item, historyComments: [action.payload, ...item.historyComments]} 
+            newState.services = newState.services.map(item => {
+                if (item.guidService == newState.curentGuidService) {
+                    return { ...item, historyComments: [action.payload, ...item.historyComments] }
                 } else {
-                    return item;  
+                    return item;
                 }
-            }) 
+            })
             newState.comment = '';
             return newState;
         case SAVE_COMENT_FAILURE:
             newState.saveComentLoading = false;
             newState.errorComentloading = action.payload;
             return newState;
-        case CHANGE_TAG_REQUEST:
-            newState.errorChangeTag = "";
-            newState.typeChangeTag = action.payload.typeChangeTag;
-            newState.curentGuidTag = action.payload.curentGuidTag;
 
-            return newState;
-        case CHANGE_TAG_SUCCESS:
-            newState.allArrayTags = action.payload.allArrayTags;
-            newState.arrayTagsByPhoto = action.payload.arrayTagsByPhoto;
-            newState.tagName = '';
-            newState.typeChangeTag = '';
-            newState.curentGuidTag = '';
-
-            return newState;
-        case CHANGE_TAG_FAILURE:
-            newState.typeChangeTag = '';
-            newState.errorChangeTag = action.payload;
-            newState.curentGuidTag = '';
-            return newState;
         case DELETE_PHOTO_REQUEST:
             newState.deletePhotoLoading = true;
             newState.loadingPatientGallery = true;

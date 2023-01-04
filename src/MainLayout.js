@@ -22,7 +22,6 @@ import { AppContext } from './context/app/AppContext';
 import { AppLoaderSmall } from './components/ui/AppLoaderSmall';
 import * as Keychain from 'react-native-keychain';
 import { PhotoGrid } from './screens/PhotoGrid';
-import { Tags } from './screens/Tags';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 //
@@ -111,7 +110,6 @@ export const MainLayout = () => {
                 <Stack.Screen name="Html" component={Html} />
                 <Stack.Screen name="Gallery" component={Gallery} options={{ headerShown: false }} />
                 <Stack.Screen name="ChangeApiUrl" component={ChangeApiUrl} options={{ headerShown: false }} />
-                <Stack.Screen name="Tags" component={Tags} />
                 <Stack.Screen name="PatientList" component={PatientList} />
                 <Stack.Screen name="MedicalDocument" component={MedicalDocument} />
 

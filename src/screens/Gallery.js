@@ -9,17 +9,11 @@ import { EmptyListMessage } from '../components/EmptyListMessage';
 
 export const Gallery = ({ navigation, route }) => {
 
-  const { patientGallery, getPhotoSourcesFromId, setFild, indexpatientGallery, loadingChangeFavoriteError, deletePhotoLoading, deletePhotos } = useContext(ReceptionContext);
+  const { patientGallery, getPhotoSourcesFromId, setFild, indexpatientGallery, deletePhotoLoading, deletePhotos } = useContext(ReceptionContext);
   const imageUrls = getPhotoSourcesFromId(patientGallery, "guidFullPhoto");
   const [viewMetadata, setViewMetada] = useState(false);
 
-  useEffect(() => {
-    if (loadingChangeFavoriteError != "") {
-      Alert.alert(loadingChangeFavoriteError);
-      setFild("loadingChangeFavoriteError", "")
-    }
-  },
-    [loadingChangeFavoriteError])
+
 
   const createThreeButtonAlert = (itemImage, index) =>
     Alert.alert(
