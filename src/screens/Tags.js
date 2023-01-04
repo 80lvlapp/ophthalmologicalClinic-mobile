@@ -10,7 +10,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 export const Tags = ({ navigation, route }) => {
 
-    const { loadingTags, errorGetTags, arrayTagsByPhoto, allArrayTags, tagName, setFild, typeChangeTag, errorChangeTag, changeTag, curentGuidTag } = useContext(ReceptionContext);
+    const { loadingTags, arrayTagsByPhoto, allArrayTags, tagName, setFild, typeChangeTag, errorChangeTag, changeTag, curentGuidTag } = useContext(ReceptionContext);
 
 
     const [isFocused, setIsFocused] = React.useState(false);
@@ -34,7 +34,7 @@ export const Tags = ({ navigation, route }) => {
         return <View />
     }
 
-    { errorGetTags && <TextError textError={errorGetTags} /> }
+
 
     const renderItemSelect = ({ item }) => (
 

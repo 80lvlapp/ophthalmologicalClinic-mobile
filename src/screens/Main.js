@@ -8,8 +8,7 @@ import { AppInputDate } from '../components/ui/AppInputDate';
 import moment from 'moment';
 import { TextError } from '../components/TextError';
 import Icon from 'react-native-vector-icons/AntDesign';
-import IconFontisto from 'react-native-vector-icons/Fontisto';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {ScheduleElement} from '../components/ScheduleElement'
 
 export const Main = ({ navigation, route }) => {
 
@@ -61,54 +60,10 @@ export const Main = ({ navigation, route }) => {
 			Alert.alert("Внимание", "Карта пациента не зарегистрирована\n\n" + "Комментарий: " + item.comment);
 			return;
 		}
-		openPatient(item.patient, item.medicalCard, navigation)
+		openPatient(item.patient, item.medicalCard, item.guidService, navigation)
 	}
 
-	{
-		/* формирование фонового цвета перенес в 1с
-		/*const getBackgroundStyle = (item) => {
-
-		if (!item.medicalCard.guid) {
-			return { backgroundColor: "#DADADA" };
-		} if (item.serviceCompleted === true) {
-			return { backgroundColor: "#e2f0e1" };
-		} else {
-			return {};
-		}
-
-	}  */
-	}
-
-	const renderItem = ({ index, item }) => (
-		<ListItem key={item.guid} onPress={() => { onPressScheduleItem(item) }}
-			bottomDivider
-			topDivider
-			containerStyle={{ backgroundColor: item.backgroundColor }}>
-
-			<View style={styles.icons}>
-				{item.visitRegistered && <IconFontisto
-					name={"check"}
-					size={20}
-					color={item.color ? item.color : null}
-				/>}
-				{item.additionalServiceParameters.ГлазаЗакапаны && <FontAwesome
-					name={"eyedropper"}
-					size={20}
-					color={item.color ? item.color : null}
-				/>}
-			</View>
-
-			<ListItem.Content>
-				<ListItem.Title style={{ color: item.color ? item.color : null}}>
-					{item.timeOfReceipt} {item.presentationPatient}
-				</ListItem.Title>
-				<ListItem.Subtitle style={[styles.iconssubtitle, { color: item.color ? item.color : null}]}>
-					{item.nomenclature.name}
-				</ListItem.Subtitle>
-			</ListItem.Content>
-			<ListItem.Chevron />
-		</ListItem>
-	);
+	const renderItem = ({ index, item }) => (<ScheduleElement item={item} onPress = {()=> onPressScheduleItem(item)}/>);
 
 	let doctorsFilter = Object.assign([], doctors);
 	doctorsFilter.unshift({ guid: 'all', name: 'Все' });
@@ -145,8 +100,6 @@ export const Main = ({ navigation, route }) => {
 					color: THEME.MAIN_COLOR,
 				}}
 			/>
-
-
 
 			{errorSchedule && <TextError textError={errorSchedule} />}
 

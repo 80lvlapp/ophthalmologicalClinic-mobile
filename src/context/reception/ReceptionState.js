@@ -70,6 +70,7 @@ export const ReceptionState = ({ children }) => {
         currentPatient: null,
         currentMedicalCard: null,
 
+        curentGuidService: '',
         date: moment().toDate(),
         fDoctor: "",
         fNamePatient: "",
@@ -119,7 +120,7 @@ export const ReceptionState = ({ children }) => {
         //TAGS
         arrayTagsByPhoto: [],
         allArrayTags: [],
-        errorGetTags: '',
+
         loadingTags: false,
         curentPhoto: null,
 
@@ -145,25 +146,12 @@ export const ReceptionState = ({ children }) => {
         loadingListPatients: false,
         errorloadingListPatients: '',
 
+        comment: ''
+
     };
 
     const [state, dispatch] = useReducer(ReceptionReducer, initialState);
     const { authAxios, getSourceImage, accessToken, getApiUrl } = useContext(AppContext);
-
-    React.useEffect(() => {
-        const timerId = setInterval(async () => {
-            try {
-                await uploadFiles(null);
-            } catch (e) {
-                console.log(e.toString());
-            }
-
-        }, 120000);
-        return () => {
-            clearInterval(timerId);
-        };
-
-    }, [state, accessToken]);
 
     const sort = (fildSort) => {
         dispatch({ type: DOCTORSSCHEDULE_SORT, payload: { fildSort, doctorsSchedule: getSortAray(fildSort, state.doctorsSchedule.slice()) } })
@@ -271,10 +259,7 @@ export const ReceptionState = ({ children }) => {
         else if (stateTypes == "PatientServiceGallery") {
             parameters = { guidPatient: state.currentPatient.guid, guidService: state.currentService.guidService }
         }
-        else if (stateTypes == "PatientFavoritesGallery") {
-            parameters = { guidPatient: state.currentPatient.guid, favorites: true }
-        }
-
+     
 
         dispatch({ type: PATIENT_GALLERY_REQUEST });
         try {
@@ -286,19 +271,7 @@ export const ReceptionState = ({ children }) => {
         }
     }
 
-    const getTags = async (photo) => {
-
-        dispatch({ type: GET_TAGS_REQUEST });
-        try {
-            const response = await authAxios.post('/?typerequest=getTagsByPhoto', { guid: photo.guidFullPhoto });
-            dispatch({ type: GET_TAGS_SUCCESS, payload: { allArrayTags: response.data.allArrayTags, arrayTagsByPhoto: response.data.arrayTagsByPhoto } });
-        } catch (error) {
-            console.log("ошибка получения tags", error.toString());
-            dispatch({ type: GET_TAGS_FAILURE, payload: error.toString() });
-        }
-
-    }
-
+  
     const openHTML = async (navigation, options, title) => {
 
         dispatch({ type: GET_HTML_REQUEST, payload: title });
@@ -316,11 +289,11 @@ export const ReceptionState = ({ children }) => {
         dispatch({ type: SET_FILD, payload: { fild, value } });
     }
 
-    const openPatient = (patient, medicalCard, navigation) => {
+    const openPatient = (patient, medicalCard, guidService, navigation) => {
         if (!patient.guid) {
             return;
         }
-        dispatch({ type: OPEN_PATIENT, payload: { patient: { ...patient }, medicalCard: { ...medicalCard } } });
+        dispatch({ type: OPEN_PATIENT, payload: { patient: { ...patient }, medicalCard: { ...medicalCard }, guidService} });
         getServices(patient.guid);
         navigation.navigate('Patient');
     }
@@ -336,80 +309,7 @@ export const ReceptionState = ({ children }) => {
 
         getPatientGallery(type);
         navigation.navigate('PhotoGrid');
-
-    }
-
-    const setPhoto = (photos) => {
-        const guidService = state.currentService.guidService;
-        const guidServiceRef = state.currentService.service.guid
-        const guidPatient = state.currentPatient.guid;
-        const newPhoto = photos.map(item => { return { ...item, guidService, guidServiceRef, guidPatient } })
-        uploadFiles(newPhoto);
-    }
-
-    const uploadFiles = async (arrayPhoto = null) => {
-
-        let uploadArray;
-        let allFiles;
-
-        console.log("Запуск uploadFiles!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
-        if (arrayPhoto != null) {
-            allFiles = await addArrayPhotoFromAsyncStorage(arrayPhoto);
-        } else {
-            allFiles = await getArrayPhotoFromAsyncStorage();
-            if (state.uploadStart) {
-                console.log("Уже идет отправка");
-                return;
-            }
-        }
-
-        if (!(state.arrayPhoto.length == 0 && allFiles.length == 0)) {
-            dispatch({ type: ADD_PHOTO, payload: { photo: allFiles } });
-        }
-
-
-        if (arrayPhoto != null) {
-            uploadArray = arrayPhoto;
-        } else {
-
-            uploadArray = allFiles;
-        }
-
-        if (!uploadArray.length) {
-            return;
-        }
-
-        setFild("uploadStart", true);
-
-        try {
-
-            for (let step = 0; step < uploadArray.length; step++) {
-
-                const item = uploadArray[step];
-
-                const successHandler = async () => {
-                    await removeArrayPhotoFromAsyncStorage(item);
-                    if (item.fromCamera) {
-                        if (await RNFS.exists(item.filepath)) {
-                            RNFS.unlink(item.filepath);
-                        }
-                    }
-                };
-
-                await uploadPhoto(item, null, successHandler);
-
-                if (step == uploadArray.length - 1) {
-                    setFild("uploadStart", false);
-                }
-            }
-
-
-
-        } catch (err) {
-            console.log(err);
-            setFild("uploadStart", false);
-        }
+    
     }
 
     const getArrayPhotoFromAsyncStorage = async () => {
@@ -640,16 +540,15 @@ export const ReceptionState = ({ children }) => {
     }
 
 
-    const saveComent = async (navigation) => {
+    const saveComent = async () => {
 
         dispatch({ type: SAVE_COMENT_REQUEST });
         try {
 
             const parameters = {
 
-                guidService: state.currentService.guidService,
-                guidServiceRef: state.currentService.service.guid,
-                comment: state.dataService.comment
+                guidService: state.curentGuidService,
+                comment: state.comment,
             }
 
             const response = await authAxios.post('/?typerequest=saveComment', parameters);
@@ -691,16 +590,6 @@ export const ReceptionState = ({ children }) => {
         }
     }
 
-
-    const openTags = (photo, navigation) => {
-
-
-        setFild("curentPhoto", { ...photo });
-
-        getTags(photo);
-        navigation.navigate('Tags');
-
-    }
 
 
     const executeGetListPatients = async (additionalLoading = false, searchTextPatients = "") => {
@@ -787,7 +676,7 @@ export const ReceptionState = ({ children }) => {
 
         arrayTagsByPhoto: state.arrayTagsByPhoto,
         allArrayTags: state.allArrayTags,
-        errorGetTags: state.errorGetTags,
+
         loadingTags: state.loadingTags,
 
         typesGallery: state.typesGallery,
@@ -809,6 +698,8 @@ export const ReceptionState = ({ children }) => {
         listPatients: state.listPatients,
         loadingListPatients: state.loadingListPatients,
         errorloadingListPatients: state.errorloadingListPatients,
+        comment:  state.comment,
+        curentGuidService:state.curentGuidService,
 
         getDoctorsSchedule,
         sort,
@@ -819,11 +710,10 @@ export const ReceptionState = ({ children }) => {
         getPatientGallery,
         getPhotoSourcesFromId,
         openHTML,
-        setPhoto,
         uploadPhoto,
         openService,
         changeFavorite,
-        openTags,
+
         saveComent,
         changeTag,
         deletePhotos,
