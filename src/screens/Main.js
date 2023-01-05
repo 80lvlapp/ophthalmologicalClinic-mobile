@@ -72,7 +72,6 @@ export const Main = ({ navigation, route }) => {
 		<View style={styles.container}>
 			<View style={{ paddingLeft: 6, paddingRight: 6, backgroundColor: "white", justifyContent: "space-between", marginTop: 10, marginBottom: 5, flexDirection: 'row' }}>
 				<AppInputDate textStyle={{ fontSize: 20 }} date={date} setDate={(value) => { setFild("date", value) }} showTime={false} />
-				<Button title="Медицинский документ" onPress={() => { navigation.navigate('MedicalDocument') }} />
 			</View>
 
 			<View style={[styles.doctors]}>

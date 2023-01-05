@@ -266,6 +266,12 @@ export const Patient = ({ navigation, route }) => {
 				/>))}
 			</View>
 
+
+			<View style={{ paddingLeft: 6, paddingRight: 6, backgroundColor: "white", justifyContent: "space-between", marginTop: 10, marginBottom: 5, flexDirection: 'row' }}>
+				<Button title="Медицинский документ" onPress={() => { navigation.navigate('MedicalDocument') }} />
+			</View>
+
+
 		</View>
 
 	);
