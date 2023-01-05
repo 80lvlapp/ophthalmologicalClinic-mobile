@@ -11,7 +11,14 @@ const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth, tableValue }) 
           {itemTableRowsData.map((cellData, x) =>
           (<View
             key={x.toString() + "_" + y.toString()}
-            style={[styles.cellData, { flex: cellData.colspan, padding: cellData.padding }]}
+            style={[styles.cellData, { 
+              flex: cellData.colspan, 
+              padding: cellData.padding, 
+              paddingLeft:cellData.paddingLeft,   
+              paddingRight:cellData.paddingRight,
+              height:cellData.height
+            
+            }]}
           >
             {cellData.type == "input" && <TextInput
               value={tableValue[cellData.Field]}
@@ -32,7 +39,9 @@ const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth, tableValue }) 
                 color: cellData.color,
                 textAlign: cellData.textAlign,
                 textAlignVertical: cellData.textAlignVertical,
-                fontWeight: cellData.fontWeight
+                fontWeight: cellData.fontWeight,
+                backgroundColor: cellData.backgroundColor,  
+                height:cellData.height        
               }]}>
                 {cellData.text}
               </Text>
