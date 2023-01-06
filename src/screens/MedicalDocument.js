@@ -12,6 +12,9 @@ export const MedicalDocument = ({navigation, route}) => {
     const [tableValue, setTableValue] = React.useState({}); 
     const onChangeTextCell = (Fild, newValue) => {
         setTableValue((prevState) => {
+
+            console.log("newValue", newValue);
+            console.log("Fild", Fild);
             newState = {...prevState};
             newState[Fild] = newValue;
             return newState;
