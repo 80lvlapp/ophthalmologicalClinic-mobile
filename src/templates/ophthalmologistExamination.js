@@ -24,41 +24,41 @@ const Items_Boolean = [
 
 const tableRowsDataPatientGlasses = [
     [
-        { type: '', colspan: 0.6, padding: 4 },
+        { keyboardType:'numeric', type: '', colspan: 0.6, padding: 4 },
         { text: 'sph', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
         { text: 'cyl', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
-        { text: 'ax', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
+        { text: 'ax',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
         { text: 'vis', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' }
 
     ],
 
     [
-        { text: 'д/дал PD= мм', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОП_Дл_PD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { type: '', colspan: 1, padding: 4 },
-        { type: '', colspan: 1, padding: 4 },
-        { type: '', colspan: 1, padding: 4 },
+        { text: 'д/дал PD= мм',  type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { Field: 'ОП_Дл_PD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        {  type: '', colspan: 1, padding: 4 },
+        {  type: '', colspan: 1, padding: 4 },
+        {  type: '', colspan: 1, padding: 4 },
     ],
 
     [
         { text: 'OD', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОП_Дл_OD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Дл_OD_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Дл_OD_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Дл_OD_vis', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Дл_OD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Дл_OD_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Дл_OD_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Дл_OD_vis', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'OS', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОП_Дл_OS_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Дл_OS_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Дл_OS_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Дл_OS_vis', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Дл_OS_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Дл_OS_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Дл_OS_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Дл_OS_vis', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
-        { text: 'д/бл PD= мм', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОП_Бл_PD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: 'д/бл PD= мм',  type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { Field: 'ОП_Бл_PD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
@@ -67,45 +67,35 @@ const tableRowsDataPatientGlasses = [
 
     [
         { text: 'OD', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОП_Бл_OD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Бл_OD_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Бл_OD_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Бл_OD_vis', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Бл_OD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Бл_OD_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Бл_OD_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Бл_OD_vis', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'OS', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОП_Бл_OS_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Бл_OS_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Бл_OS_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОП_Бл_OS_vis', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Бл_OS_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Бл_OS_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Бл_OS_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОП_Бл_OS_vis', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
 
     
     [
         { text: 'Ведущий глаз', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОП_ВедущийГлаз', type: 'select', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_ОП_ВедущийГлаз },
+        { Field: 'ОП_ВедущийГлаз', keyboardType:'numeric', type: 'select', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_ОП_ВедущийГлаз },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
     ],
-
-
     [
         { text: 'Вид линзы', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОП_ВидЛинзы', type: 'select', colspan: 2, padding: 4, paddingLeft:2, paddingRight:0, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_ВидЛинзы },
+        { Field: 'ОП_ВидЛинзы', keyboardType:'numeric', type: 'select', colspan: 2, padding: 4, paddingLeft:2, paddingRight:0, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_ВидЛинзы },
         { type: '', colspan: 1, padding: 4, paddingLeft:2},
         { type: '', colspan: 1, padding: 4 },
     ],
-    
-   
-    
-   
- 
-
-  
-
 ];
 
 const tableRowsDataKeratometry = [
@@ -126,18 +116,18 @@ const tableRowsDataKeratometry = [
 
     [
         { text: 'OD', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'А_Уз_OD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Уз_OD_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Уз_OD_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Уз_OD_dio', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Уз_OD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Уз_OD_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Уз_OD_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Уз_OD_dio', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
-        { text: 'OS', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'А_Уз_OS_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Уз_OS_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Уз_OS_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Уз_OS_dio', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: 'OS',  type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { Field: 'А_Уз_OS_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Уз_OS_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Уз_OS_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Уз_OS_dio', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
@@ -147,24 +137,23 @@ const tableRowsDataKeratometry = [
 
     [
         { text: 'OD', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'А_Ум_OD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Ум_OD_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Ум_OD_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Ум_OD_dio', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Ум_OD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Ум_OD_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Ум_OD_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Ум_OD_dio', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'OS', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'А_Ум_OS_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Ум_OS_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Ум_OS_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'А_Ум_OS_dio', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Ум_OS_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Ум_OS_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Ум_OS_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'А_Ум_OS_dio', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'Капли для мидриаза/циклоплегии', type: 'text', colspan: 0.6,paddingLeft:2, paddingRight:2, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'КаплиДляМидриаза', type: 'select', colspan: 3, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_ОП_КаплиДляМидриаза},
-   
+        { Field: 'КаплиДляМидриаза', keyboardType:'numeric', type: 'select', colspan: 3, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_ОП_КаплиДляМидриаза},
         { type: '', colspan: 1, padding: 4, paddingLeft:2, paddingRight:0 },
     ],
 
@@ -190,20 +179,20 @@ const tableOpticalCorrection = [
 
     [
         { text: 'OD', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОК_УЗ_OD_vis_бк', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_УЗ_OD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_УЗ_OD_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_УЗ_OD_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_УЗ_OD_vis_ск', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OD_vis_бк', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OD_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OD_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OD_vis_ск', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'OS', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОК_УЗ_OS_vis_бк', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_УЗ_OS_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_УЗ_OS_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_УЗ_OS_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_УЗ_OS_vis_ск', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OS_vis_бк', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OS_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OS_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OS_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_УЗ_OS_vis_ск', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
@@ -213,25 +202,25 @@ const tableOpticalCorrection = [
 
     [
         { text: 'OD', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОК_ШЗ_OD_vis_бк', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_ШЗ_OD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_ШЗ_OD_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_ШЗ_OD_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_ШЗ_OD_vis_ск', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OD_vis_бк', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OD_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OD_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OD_vis_ск', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'OS', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОК_ШЗ_OS_vis_бк', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_ШЗ_OS_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_ШЗ_OS_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_ШЗ_OS_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОК_ШЗ_OS_vis_ск', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OS_vis_бк', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OS_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OS_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OS_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ШЗ_OS_vis_ск', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'ADD', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ОК_ADD', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОК_ADD', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
@@ -252,50 +241,50 @@ const tableKeratometry = [
 
     [
 
-        { text: '', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
-        { text: 'D', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
-        { text: 'mm', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
-        { text: 'ax', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
-        { text: 'D', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
-        { text: 'mm', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
-        { text: 'ax', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
+        { text: '',  type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
+        { text: 'D',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
+        { text: 'mm',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
+        { text: 'ax',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
+        { text: 'D',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
+        { text: 'mm',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
+        { text: 'ax',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
 
     ],
 
     [
         { text: 'K1', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'К_OD_D_K1', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OD_mm_K1', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OD_ax_K1', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OS_D_K1', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OS_mm_K1', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OS_ax_K1', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OD_D_K1', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OD_mm_K1', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OD_ax_K1', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_D_K1', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_mm_K1', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_ax_K1', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'K2', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'К_OD_D_K2', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OD_mm_K2', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OD_ax_K2', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OS_D_K2', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OS_mm_K2', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OS_ax_K2', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OD_D_K2', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OD_mm_K2', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OD_ax_K2', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_D_K2', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_mm_K2', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_ax_K2', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
 
     [
-        { text: 'AVE', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'К_OD_D_AVE', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OD_mm_AVE', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OD_ax_AVE', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OS_D_AVE', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OS_mm_AVE', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'К_OS_ax_AVE', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: 'AVE',  type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { Field: 'К_OD_D_AVE', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OD_mm_AVE', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OD_ax_AVE', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_D_AVE', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_mm_AVE', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_ax_AVE', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'cyl', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'К_OD_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OD_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
         { text: 'cyl', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
         { Field: 'К_OS_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
@@ -304,11 +293,11 @@ const tableKeratometry = [
     ],
 
     [
-        { text: 'ax', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'К_OD_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
+        { text: 'ax',  type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { Field: 'К_OD_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: '',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
         { text: 'ax', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'К_OS_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'К_OS_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
         { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'bottom', textAlign: 'center' },
     ],
@@ -318,8 +307,8 @@ const tableKeratometry = [
 const tableEyeExamination = [
 
     [
-        { text: '', type: 'text', colspan: 0.6, padding: 4, height: 80, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { text: 'Тонометрия', type: 'text', colspan: 2, paddingRight: 2, height: 80, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center', backgroundColor: 'yellow' },
+        { text: '',  type: 'text', colspan: 0.6, padding: 4, height: 80, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: 'Тонометрия',  type: 'text', colspan: 2, paddingRight: 2, height: 80, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center', backgroundColor: 'yellow' },
         { text: 'Оптическая биометрия / Ультразвуковая биометрия', type: 'text', colspan: 4, paddingRight: 2, height: 80, paddingLeft: 2, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center', backgroundColor: 'yellow' },
         { text: 'Плотность эндотелиальных клеток, центр. толщина роговицы', type: 'text', colspan: 2, paddingRight: 2, paddingLeft: 2, height: 80, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center', backgroundColor: 'yellow' },
     ],
@@ -328,7 +317,7 @@ const tableEyeExamination = [
         { text: '', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
 
         { text: 'Пневмотонометрия', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { text: 'по Маклакову', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: 'по Маклакову',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
         { text: 'Передняя камера (мм)', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: 'Хрусталик (мм)', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
@@ -343,31 +332,31 @@ const tableEyeExamination = [
 
     [
         { text: 'OD', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ИГ_OD_Пневмотонометрия', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OD_ПоМаклакову', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OD_Пневмотонометрия', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OD_ПоМаклакову', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
-        { Field: 'ИГ_OD_ПК', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OD_Хрусталик', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OD_ДГ', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OD_WTW', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OD_ПК', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OD_Хрусталик', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OD_ДГ', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OD_WTW', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
-        { Field: 'ИГ_OD_ПЭК', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OD_ЦТР', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OD_ПЭК', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OD_ЦТР', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
     ],
 
     [
         { text: 'OS', type: 'text', colspan: 0.6, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'ИГ_OS_Пневмотонометрия', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OS_ПоМаклакову', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OS_Пневмотонометрия', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OS_ПоМаклакову', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
-        { Field: 'ИГ_OS_ПК', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OS_Хрусталик', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OS_ДГ', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OS_WTW', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OS_ПК', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OS_Хрусталик', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OS_ДГ', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OS_WTW', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
-        { Field: 'ИГ_OS_ПЭК', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ИГ_OS_ЦТР', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OS_ПЭК', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ИГ_OS_ЦТР', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
     ],
 
@@ -377,40 +366,40 @@ const tableEyeExamination = [
 const tablebBinocularStatus = [
     [
         { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { text: 'Wort test д/д', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_WortTest_дд', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { text: 'д/б', type: 'text', colspan: 0.3, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_WortTest_дб', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { text: '', type: '', colspan: 0.5, padding: 4, fontWeight: 'bold', textAlign: 'left', color: 'black' },
-        { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { text: 'Wort test д/д',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { Field: 'БС_WortTest_дд', keyboardType:'', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: 'д/б', keyboardType:'numeric', type: 'text', colspan: 0.3, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { Field: 'БС_WortTest_дб', keyboardType:'', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: '', keyboardType:'numeric', type: '', colspan: 0.5, padding: 4, fontWeight: 'bold', textAlign: 'left', color: 'black' },
+        { text: '', keyboardType:'numeric', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
     ],
 
     [
         { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
         { text: 'Schober test д/д', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_SchoberTest_дд', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_SchoberTest_дд', keyboardType:'', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: 'д/б', type: 'text', colspan: 0.3, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_SchoberTest_дб', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_SchoberTest_дб', keyboardType:'', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: '', type: '', colspan: 0.5, padding: 4, fontWeight: 'bold', textAlign: 'left', color: 'black' },
         { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
     ],
 
     [
         { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { text: 'Cover test д/д', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_CoverTest_дд', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: 'Cover test д/д',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { Field: 'БС_CoverTest_дд', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: 'д/б', type: 'text', colspan: 0.3, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_CoverTest_дб', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_CoverTest_дб', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: 'Δ', type: 'text', colspan: 0.5, padding: 4, fontWeight: 'bold', textAlign: 'left', color: 'black' },
-        { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
+        { text: '',  type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
     ],
 
     [
         { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
         { text: 'Dev=', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_dev_дд', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_dev_дд', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: 'д/б', type: 'text', colspan: 0.3, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_dev_дб', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_dev_дб', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: 'град.', type: 'text', colspan: 0.5, padding: 4, fontWeight: 'bold', textAlign: 'left', color: 'black' },
         { text: '', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
     ],
@@ -420,7 +409,7 @@ const tablebBinocularStatus = [
         { type: '', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
         { type: '', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: '3OA=', type: 'text', colspan: 0.3, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_Dev_3OA', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_Dev_3OA', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { type: '', colspan: 0.5, padding: 4, fontWeight: 'bold', textAlign: 'left', color: 'black' },
         { text: '', type: '', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
     ],
@@ -428,9 +417,9 @@ const tablebBinocularStatus = [
     [
         { type: '', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
         { text: 'Конвергенция', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_Конвергенция', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_Конвергенция', keyboardType:'', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: 'Lag=', type: 'text', colspan: 0.3, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_Конвергенция_Lag', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_Конвергенция_Lag', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { type: '', colspan: 0.5, padding: 4, fontWeight: 'bold', textAlign: 'left', color: 'black' },
         { type: '', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
     ],
@@ -438,9 +427,9 @@ const tablebBinocularStatus = [
     [
         { type: '', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
         { text: 'Подвижность', type: 'text', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_Подвижность', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_Подвижность', keyboardType:'', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { text: 'AA', type: 'text', colspan: 0.3, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
-        { Field: 'БС_Подвижность_AA', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'БС_Подвижность_AA', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { type: '', colspan: 0.5, padding: 4, fontWeight: 'bold', textAlign: 'left', color: 'black' },
         { type: '', colspan: 1, padding: 4, fontWeight: 'bold', textAlign: 'right', color: 'black' },
     ],
@@ -457,33 +446,33 @@ const tableDefinitionPhoria = [
 
     [
         { text: 'Maddox Wing', type: 'text', colspan: 0.5, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'ОФ_MaddoxWing_Ф', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОФ_MaddoxWing_ОчкКор', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОФ_MaddoxWing_КонКор', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОФ_MaddoxWing_Ф', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОФ_MaddoxWing_ОчкКор', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОФ_MaddoxWing_КонКор', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
     ],
 
     [
         { text: 'c add', type: 'text', colspan: 0.5, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'ОФ_add_Ф', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОФ_add_ОчкКор', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОФ_add_КК', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОФ_add_Ф', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОФ_add_ОчкКор', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОФ_add_КК', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
     ],
 
     [
-        { text: 'АК/А', type: 'text', colspan: 0.5, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'ОФ_ak_Ф', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОФ_ak_ОчкКор', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОФ_ak_КонКор', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { text: 'АК/А',  type: 'text', colspan: 0.5, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
+        { Field: 'ОФ_ak_Ф', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОФ_ak_ОчкКор', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОФ_ak_КонКор', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
     ],
 
     [
         { text: 'Фузионные резервы', type: 'text', colspan: 0.5, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'ОФ_ФР_Ф', type: 'select', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_Boolean  },
-        { Field: 'ОФ_ФР_ОчкКор', type: 'select', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_Boolean  },
-        { Field: 'ОФ_ФР_КонКор', type: 'select', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_Boolean  },
+        { Field: 'ОФ_ФР_Ф', keyboardType:'numeric', type: 'select', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_Boolean  },
+        { Field: 'ОФ_ФР_ОчкКор', keyboardType:'numeric', type: 'select', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_Boolean  },
+        { Field: 'ОФ_ФР_КонКор', keyboardType:'numeric', type: 'select', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center', PickerItems: Items_Boolean  },
 
     ],
 
@@ -501,7 +490,7 @@ const tableRecommendedGlasses = [
 
     [
         { text: 'д/дал PD=мм', type: 'text', colspan: 0.7, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'РО_дд_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дд_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
@@ -510,23 +499,23 @@ const tableRecommendedGlasses = [
 
     [
         { text: 'OD', type: 'text', colspan: 0.7, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'РО_дд_OD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дд_OD_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дд_OD_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дд_OD_vis', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дд_OD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дд_OD_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дд_OD_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дд_OD_vis', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'OS', type: 'text', colspan: 0.7, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'РО_дд_OS_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дд_OS_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дд_OS_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дд_OS_vis', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дд_OS_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дд_OS_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дд_OS_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дд_OS_vis', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'д/бл PD=мм', type: 'text', colspan: 0.7, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'РО_дб_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дб_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
         { type: '', colspan: 1, padding: 4 },
@@ -535,23 +524,23 @@ const tableRecommendedGlasses = [
 
     [
         { text: 'OD', type: 'text', colspan: 0.7, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'РО_дб_OD_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дб_OD_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дб_OD_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дб_OD_vis', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дб_OD_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дб_OD_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дб_OD_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дб_OD_vis', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'OS', type: 'text', colspan: 0.7, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'РО_дб_OS_sph', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дб_OS_cyl', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дб_OS_ax', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'РО_дб_OS_vis', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дб_OS_sph', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дб_OS_cyl', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дб_OS_ax', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'РО_дб_OS_vis', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
     ],
 
     [
         { text: 'Вид линзы', type: 'text', colspan: 0.7, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
-        { Field: 'РО_ВидЛинзы', type: 'select', colspan: 2, padding: 4, paddingLeft:2, paddingRight:0, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center',  PickerItems: Items_ВидЛинзы},
+        { Field: 'РО_ВидЛинзы', keyboardType:'numeric', type: 'select', colspan: 2, padding: 4, paddingLeft:2, paddingRight:0, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center',  PickerItems: Items_ВидЛинзы},
         { type: '', colspan: 1, padding: 4, paddingLeft:2},
         { type: '', colspan: 1, padding: 4 },
       

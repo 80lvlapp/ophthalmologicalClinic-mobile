@@ -31,7 +31,7 @@ const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth, tableValue }) 
                 textAlignVertical: cellData.textAlignVertical,
                 fontWeight: cellData.fontWeight
               }]}
-              keyboardType='numeric'
+              keyboardType={cellData.keyboardType}
               autoComplete={'cc-number'}
               onChangeText={(newValue) => onChangeTextCell(cellData.Field, newValue)}
             />}
