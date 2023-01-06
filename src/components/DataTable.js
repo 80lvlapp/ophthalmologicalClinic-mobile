@@ -1,7 +1,10 @@
 import React from "react";
 import { View, StyleSheet, TextInput, Text, } from "react-native";
+import { Picker } from '@react-native-picker/picker';
 
 const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth, tableValue }) => {
+
+  const [selectedLanguage, setSelectedLanguage] = React.useState();
 
   return (
 
@@ -11,22 +14,22 @@ const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth, tableValue }) 
           {itemTableRowsData.map((cellData, x) =>
           (<View
             key={x.toString() + "_" + y.toString()}
-            style={[styles.cellData, { 
-              flex: cellData.colspan, 
-              padding: cellData.padding, 
-              paddingLeft:cellData.paddingLeft,   
-              paddingRight:cellData.paddingRight,
-              height:cellData.height
-            
+            style={[styles.cellData, {
+              flex: cellData.colspan,
+              padding: cellData.padding,
+              paddingLeft: cellData.paddingLeft,
+              paddingRight: cellData.paddingRight,
+              height: cellData.height
+
             }]}
           >
             {cellData.type == "input" && <TextInput
               value={tableValue[cellData.Field]}
-              style={[styles.textInput, { 
+              style={[styles.textInput, {
                 color: cellData.color,
                 textAlign: cellData.textAlign,
                 textAlignVertical: cellData.textAlignVertical,
-                fontWeight: cellData.fontWeight    
+                fontWeight: cellData.fontWeight
               }]}
               keyboardType='numeric'
               autoComplete={'cc-number'}
@@ -40,11 +43,40 @@ const DataTable = ({ tableRowsData, onChangeTextCell, TableWidth, tableValue }) 
                 textAlign: cellData.textAlign,
                 textAlignVertical: cellData.textAlignVertical,
                 fontWeight: cellData.fontWeight,
-                backgroundColor: cellData.backgroundColor,  
-                height:cellData.height        
+                backgroundColor: cellData.backgroundColor,
+                height: cellData.height
               }]}>
                 {cellData.text}
               </Text>
+            }
+
+            {cellData.type == "select" &&
+              <View style={styles.selectWrapper}>
+                <Picker
+                  mode='dropdown'
+                  itemStyle={{
+                    color: cellData.color,
+                    textAlign: cellData.textAlign,
+                    textAlignVertical: cellData.textAlignVertical,
+                    fontWeight: cellData.fontWeight,
+                    backgroundColor: cellData.backgroundColor,
+                    height: cellData.height,
+                    width: '100%',
+                  }}
+
+                  style={{ width: '100%',textAlign: 'center' }}
+
+                  selectedValue={tableValue[cellData.Field]}
+                  onValueChange={(itemValue, itemIndex) =>
+                    onChangeTextCell(cellData.Field, itemValue)
+                  }>
+
+                  <Picker.Item label="" value="" />
+                  {cellData.PickerItems.map((item) => <Picker.Item key={item.value} label={item.label} value={item.value} />)}
+
+
+                </Picker>
+              </View>
             }
 
           </View>)
@@ -94,6 +126,10 @@ const styles = StyleSheet.create({
 
   text: {
     width: "100%"
+  },
+
+  selectWrapper: {
+    borderWidth: 0.5, width: '100%', height: '100%'
   }
 
 })
