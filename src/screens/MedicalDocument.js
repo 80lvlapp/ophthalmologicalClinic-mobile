@@ -16,6 +16,7 @@ export const MedicalDocument = ({ navigation, route }) => {
 
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const [load, setLoad] = React.useState(true);
+    const [saved, setSaved] = React.useState(false);
 
     const template = getTemplate(id);
     const tableRowsData = template.sections[selectedIndex].tableRows;
@@ -54,6 +55,17 @@ export const MedicalDocument = ({ navigation, route }) => {
         restoreTableValue();
     }, [])
 
+
+    const handlerSaveMedicalDocument = async () => {
+        
+        setSaved(true);
+        try {
+           const response = await saveMedicalDocument(id, curentGuidService, tableValue);
+        } catch (error) {
+        }
+        setSaved(false);
+    }
+
     if (load) {
         return (<AppLoaderSmall />);
     }
@@ -74,8 +86,8 @@ export const MedicalDocument = ({ navigation, route }) => {
 
             <DataTable tableRowsData={tableRowsData} onChangeTextCell={onChangeTextCell} tableValue={tableValue} />
 
-            <View style={{ position: 'absolute', left: 2, right: 2, bottom: 2 }}>
-                < Button title={"Сохранить"} onPress={() => {saveMedicalDocument(id, curentGuidService, tableValue)}} />
+            <View style={styles.buttonSave}>
+                < Button loading={saved} title={"Сохранить"} onPress={() => { handlerSaveMedicalDocument() }} />
             </View>
 
         </View>
@@ -85,6 +97,15 @@ export const MedicalDocument = ({ navigation, route }) => {
 
 
 const styles = StyleSheet.create({
+
+    buttonSave: {
+        position:'absolute',
+        bottom:'10%',
+        padding:10,
+        left:'10%',
+        right:'10%'
+    },
+
     contentContainer: {
         padding: 10,
     },
