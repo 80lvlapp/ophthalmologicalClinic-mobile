@@ -72,6 +72,9 @@ export const MedicalDocument = ({ navigation, route }) => {
 
     return (
         <View style={{ flex: 1, backgroundColor: "white", padding: 2 }}>
+           
+          
+
             <View>
                 <ScrollView horizontal={true} style={[styles.contentContainer]} >
                     {template.sections.map((item, index) =>
@@ -99,11 +102,11 @@ export const MedicalDocument = ({ navigation, route }) => {
 const styles = StyleSheet.create({
 
     buttonSave: {
-        position:'absolute',
-        bottom:'10%',
-        padding:10,
-        left:'10%',
-        right:'10%'
+        padding:40,
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+
+    //height: '80%'
     },
 
     contentContainer: {
