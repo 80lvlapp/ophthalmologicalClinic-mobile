@@ -6,7 +6,6 @@ import { TextError } from '../components/TextError';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
-import IconMaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Button, Divider, ListItem, Input, CheckBox } from 'react-native-elements';
 import { EmptyListMessage } from '../components/EmptyListMessage';
 import UseOpenGroups from '../hooks/UseOpenGroups';
@@ -266,11 +265,9 @@ export const Patient = ({ navigation, route }) => {
 				/>))}
 			</View>
 
-
-			<View style={{ paddingLeft: 6, paddingRight: 6, backgroundColor: "white", justifyContent: "space-between", marginTop: 10, marginBottom: 5, flexDirection: 'row' }}>
-				<Button title="Медицинский документ" onPress={() => { navigation.navigate('MedicalDocument') }} />
-			</View>
-
+			{curentService && curentService.medicalDocumentType &&
+				<Button title={curentService.medicalDocumentType.name} onPress={() => { navigation.navigate('MedicalDocument', {id: curentService.medicalDocumentType.id, guid:curentService.medicalDocument.guid }) }} />
+			}
 
 		</View>
 

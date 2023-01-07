@@ -2,6 +2,8 @@ import React from 'react';
 import { ListItem } from 'react-native-elements';
 import { View, StyleSheet } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconFontisto from 'react-native-vector-icons/Fontisto';
+
 
 export const ScheduleElement = ({ item, onPress }) => {
    return (

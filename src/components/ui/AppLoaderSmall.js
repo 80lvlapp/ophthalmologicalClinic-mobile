@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { StyleSheet, View, ActivityIndicator, Image } from 'react-native'
+import { StyleSheet, View, ActivityIndicator} from 'react-native'
 import { THEME } from '../../themes'
 
 export const AppLoaderSmall = () => (

@@ -5,13 +5,19 @@ import { getTemplate } from './../templates';
 import { THEME } from './../themes'
 import { ReceptionContext } from '../context/reception/ReceptionContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {AppLoaderSmall} from '../components/ui/AppLoaderSmall';
 
 export const MedicalDocument = ({ navigation, route }) => {
 
-    const { curentGuidService } = React.useContext(ReceptionContext);
+    const { id, guid } = route.params;
+
+    const { curentGuidService, getDataMedicalDocumentData } = React.useContext(ReceptionContext);
     const inputKey = `${curentGuidService}-medicalDocument`;
+    
     const [selectedIndex, setSelectedIndex] = React.useState(0);
-    const template = getTemplate('tableRowsDataDefinitionPhoria');
+    const [load, setLoad] = React.useState(true);
+    
+    const template = getTemplate(id);
     const tableRowsData = template.sections[selectedIndex].tableRows;
     const [tableValue, setTableValue] = React.useState({});
     const onChangeTextCell = (Fild, newValue) => {
@@ -30,15 +36,27 @@ export const MedicalDocument = ({ navigation, route }) => {
     }, [route, template]);
 
     React.useEffect(() => {
+
         async function restoreTableValue() {
             const TableValueStorage = await AsyncStorage.getItem(inputKey);
             if (TableValueStorage) {
                 setTableValue(JSON.parse(TableValueStorage));
+            } else if (guid) {
+                try {
+                    const response = await getDataMedicalDocumentData(guid);
+                    setTableValue(response.data.medicalDocumentData);
+                } catch (error) {
+                }
             }
+            setLoad(false);
         }
         restoreTableValue();
     }, [])
 
+    if (load) {
+        return (<AppLoaderSmall/>);
+    }
+    
     return (
         <View style={{ flex: 1, backgroundColor: "white", padding: 2 }}>
             <View>

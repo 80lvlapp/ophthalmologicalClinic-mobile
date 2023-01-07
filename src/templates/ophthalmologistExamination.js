@@ -456,7 +456,7 @@ const tableDefinitionPhoria = [
         { text: 'c add', type: 'text', colspan: 0.5, paddingRight: 4, color: 'black', fontWeight: 'bold', textAlign: 'right' },
         { Field: 'ОФ_add_Ф', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
         { Field: 'ОФ_add_ОчкКор', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
-        { Field: 'ОФ_add_КК', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
+        { Field: 'ОФ_add_КонКор', keyboardType:'numeric', type: 'input', colspan: 1, padding: 4, fontWeight: 'normal', color: 'black', textAlignVertical: 'center', textAlign: 'center' },
 
     ],
 
