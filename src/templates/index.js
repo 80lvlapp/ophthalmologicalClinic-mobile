@@ -1,6 +1,6 @@
-import tableRowsDataDefinitionPhoria from './ophthalmologistExamination';
+import ophthalmologistExamination from './ophthalmologistExamination';
 const templates = {
-    tableRowsDataDefinitionPhoria
+    ophthalmologistExamination
 }
 export const getTemplate = (Template) => {
     return templates[Template];
