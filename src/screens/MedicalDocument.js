@@ -5,18 +5,18 @@ import { getTemplate } from './../templates';
 import { THEME } from './../themes'
 import { ReceptionContext } from '../context/reception/ReceptionContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {AppLoaderSmall} from '../components/ui/AppLoaderSmall';
-
+import { AppLoaderSmall } from '../components/ui/AppLoaderSmall';
+import { Button } from 'react-native-elements';
 export const MedicalDocument = ({ navigation, route }) => {
 
     const { id, guid } = route.params;
 
-    const { curentGuidService, getDataMedicalDocumentData } = React.useContext(ReceptionContext);
+    const { curentGuidService, getDataMedicalDocumentData, saveMedicalDocument } = React.useContext(ReceptionContext);
     const inputKey = `${curentGuidService}-medicalDocument`;
-    
+
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const [load, setLoad] = React.useState(true);
-    
+
     const template = getTemplate(id);
     const tableRowsData = template.sections[selectedIndex].tableRows;
     const [tableValue, setTableValue] = React.useState({});
@@ -38,7 +38,8 @@ export const MedicalDocument = ({ navigation, route }) => {
     React.useEffect(() => {
 
         async function restoreTableValue() {
-            const TableValueStorage = await AsyncStorage.getItem(inputKey);
+            let TableValueStorage = await AsyncStorage.getItem(inputKey);
+            TableValueStorage = null;
             if (TableValueStorage) {
                 setTableValue(JSON.parse(TableValueStorage));
             } else if (guid) {
@@ -54,9 +55,9 @@ export const MedicalDocument = ({ navigation, route }) => {
     }, [])
 
     if (load) {
-        return (<AppLoaderSmall/>);
+        return (<AppLoaderSmall />);
     }
-    
+
     return (
         <View style={{ flex: 1, backgroundColor: "white", padding: 2 }}>
             <View>
@@ -72,6 +73,10 @@ export const MedicalDocument = ({ navigation, route }) => {
 
 
             <DataTable tableRowsData={tableRowsData} onChangeTextCell={onChangeTextCell} tableValue={tableValue} />
+
+            <View style={{ position: 'absolute', left: 2, right: 2, bottom: 2 }}>
+                < Button title={"Сохранить"} onPress={() => {saveMedicalDocument(id, curentGuidService, tableValue)}} />
+            </View>
 
         </View>
     )
