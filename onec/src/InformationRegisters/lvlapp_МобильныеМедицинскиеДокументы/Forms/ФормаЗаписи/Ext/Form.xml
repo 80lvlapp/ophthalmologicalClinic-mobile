@@ -4,7 +4,7 @@
 	<AutoCommandBar name="" id="-1"/>
 	<ChildItems>
 		<InputField name="МедицинскийДокумент" id="1">
-			<DataPath>Запись.МедицинскийДокумент</DataPath>
+			<DataPath>Запись.ШаблонМедицинскогоДокумента</DataPath>
 			<ContextMenu name="МедицинскийДокументКонтекстноеМеню" id="2"/>
 			<ExtendedTooltip name="МедицинскийДокументРасширеннаяПодсказка" id="3"/>
 		</InputField>

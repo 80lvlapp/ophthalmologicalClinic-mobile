@@ -457,6 +457,12 @@ export const ReceptionState = ({ children }) => {
             return response;
     }
 
+
+    const saveMedicalDocument = async (id, guidService, medicalDocumentData) => {
+        const response = await authAxios.post('/?typerequest=saveMedicalDocument', {id, guidService, medicalDocumentData});
+        return response;
+    }
+
     return (<ReceptionContext.Provider value={{
         doctorsSchedule: state.doctorsSchedule,
         doctors: state.doctors,
@@ -522,7 +528,8 @@ export const ReceptionState = ({ children }) => {
         setSearchTextListPatients,
 
         saveValueParametr,
-        getDataMedicalDocumentData
+        getDataMedicalDocumentData,
+        saveMedicalDocument
      
     }}>{children}</ReceptionContext.Provider>)
 

@@ -42,7 +42,7 @@
 			<Comment/>
 			<UseStandardCommands>true</UseStandardCommands>
 			<EditType>InDialog</EditType>
-			<DefaultRecordForm>InformationRegister.lvlapp_МобильныеМедицинскиеДокументы.Form.ФормаЗаписи</DefaultRecordForm>
+			<DefaultRecordForm/>
 			<DefaultListForm/>
 			<AuxiliaryRecordForm/>
 			<AuxiliaryListForm/>
@@ -213,13 +213,56 @@
 					<DataHistory>Use</DataHistory>
 				</Properties>
 			</Resource>
-			<Dimension uuid="9829c642-b80e-4165-a708-1995d374d608">
+			<Resource uuid="4a58e1cc-e3ea-40d3-9d65-9ed5fe5a9004">
 				<Properties>
-					<Name>МедицинскийДокумент</Name>
+					<Name>НаименованиеВМобильномПриложении</Name>
 					<Synonym>
 						<v8:item>
 							<v8:lang>ru</v8:lang>
-							<v8:content>Медицинский документ</v8:content>
+							<v8:content>Наименование в мобильном приложении</v8:content>
+						</v8:item>
+					</Synonym>
+					<Comment/>
+					<Type>
+						<v8:Type>xs:string</v8:Type>
+						<v8:StringQualifiers>
+							<v8:Length>100</v8:Length>
+							<v8:AllowedLength>Variable</v8:AllowedLength>
+						</v8:StringQualifiers>
+					</Type>
+					<PasswordMode>false</PasswordMode>
+					<Format/>
+					<EditFormat/>
+					<ToolTip/>
+					<MarkNegatives>false</MarkNegatives>
+					<Mask/>
+					<MultiLine>false</MultiLine>
+					<ExtendedEdit>false</ExtendedEdit>
+					<MinValue xsi:nil="true"/>
+					<MaxValue xsi:nil="true"/>
+					<FillFromFillingValue>false</FillFromFillingValue>
+					<FillValue xsi:type="xs:string"/>
+					<FillChecking>DontCheck</FillChecking>
+					<ChoiceFoldersAndItems>Items</ChoiceFoldersAndItems>
+					<ChoiceParameterLinks/>
+					<ChoiceParameters/>
+					<QuickChoice>Auto</QuickChoice>
+					<CreateOnInput>Auto</CreateOnInput>
+					<ChoiceForm/>
+					<LinkByType/>
+					<ChoiceHistoryOnInput>Auto</ChoiceHistoryOnInput>
+					<Indexing>DontIndex</Indexing>
+					<FullTextSearch>Use</FullTextSearch>
+					<DataHistory>Use</DataHistory>
+				</Properties>
+			</Resource>
+			<Dimension uuid="9829c642-b80e-4165-a708-1995d374d608">
+				<Properties>
+					<Name>ШаблонМедицинскогоДокумента</Name>
+					<Synonym>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Шаблон медицинского документа</v8:content>
 						</v8:item>
 					</Synonym>
 					<Comment/>
@@ -260,6 +303,7 @@
 				</Properties>
 			</Dimension>
 			<Form>ФормаЗаписи</Form>
+			<Template>ophthalmologistExamination</Template>
 		</ChildObjects>
 	</InformationRegister>
 </MetaDataObject>
