@@ -43,9 +43,9 @@ export const MedicalDocument = ({ navigation, route }) => {
             TableValueStorage = null;
             if (TableValueStorage) {
                 setTableValue(JSON.parse(TableValueStorage));
-            } else if (guid) {
+            } else  {
                 try {
-                    const response = await getDataMedicalDocumentData(guid);
+                    const response = await getDataMedicalDocumentData(curentGuidService);
                     setTableValue(response.data.medicalDocumentData);
                 } catch (error) {
                 }
