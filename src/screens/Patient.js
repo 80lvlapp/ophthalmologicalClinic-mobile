@@ -27,7 +27,7 @@ export const Patient = ({ navigation, route }) => {
 
 	React.useLayoutEffect(() => {
 		navigation.setOptions({
-			title: 'История пациента',
+			title: 'Пациент',
 		});
 	}, [route]);
 
@@ -228,7 +228,15 @@ export const Patient = ({ navigation, route }) => {
 				<View style={styles.commentFormButton}>
 
 					<Button
-						title="Сохранить комментарий"
+
+						icon={
+							<IconIonicons
+								name="send"
+								size={30}
+								color="white"
+							/>
+						}
+
 						buttonStyle={{
 							backgroundColor: THEME.BUTTON_COLOR,
 							borderRadius: 5,
@@ -262,11 +270,31 @@ export const Patient = ({ navigation, route }) => {
 					onPress={() => {
 						saveValueParametr(item.id, !item.value, curentGuidService);
 					}}
+
+				//	uncheckedIcon='add'
+  					checkedColor='#86518d'
+
+					//checkedColor = {{color: THEME.BUTTON_COLOR}}
+					//containerStyle= {{color: THEME.BUTTON_COLOR}}
+					//uncheckedColor = {{color: THEME.BUTTON_COLOR}}
+					textStyle={{ color: THEME.BUTTON_COLOR }}
 				/>))}
 			</View>
 
 			{curentService && curentService.medicalDocumentType &&
-				<Button title={curentService.medicalDocumentType.name} onPress={() => { navigation.navigate('MedicalDocument', {id: curentService.medicalDocumentType.id, guid:curentService.medicalDocument.guid }) }} />
+				<Button
+
+
+
+					buttonStyle={{
+						backgroundColor: THEME.BUTTON_COLOR,
+						borderRadius: 5,
+						marginTop: 5,
+						marginBottom: 20
+
+					}}
+
+					title={curentService.medicalDocumentType.name} onPress={() => { navigation.navigate('MedicalDocument', { id: curentService.medicalDocumentType.id, guid: curentService.medicalDocument.guid }) }} />
 			}
 
 		</View>
@@ -285,13 +313,12 @@ const styles = StyleSheet.create(
 
 		commentFormInput: {
 			flexDirection: 'row',
-			flex: 0.9,
+			flex: 1,
 		},
 
 		commentFormButton: {
-			flexDirection: 'row',
-			flex: 0.2,
-			paddingLeft: 2
+
+			padding: 10
 		},
 
 		titleStyle: {

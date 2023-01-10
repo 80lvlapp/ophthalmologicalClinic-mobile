@@ -8,7 +8,9 @@ import { AppInputDate } from '../components/ui/AppInputDate';
 import moment from 'moment';
 import { TextError } from '../components/TextError';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {ScheduleElement} from '../components/ScheduleElement'
+import { ScheduleElement } from '../components/ScheduleElement'
+
+
 
 export const Main = ({ navigation, route }) => {
 
@@ -18,9 +20,7 @@ export const Main = ({ navigation, route }) => {
 	React.useLayoutEffect(() => {
 		navigation.setOptions({
 			title: 'Расписание врачей',
-			headerTitleStyle: {
-				fontSize: 16,
-			},
+			
 		});
 	}, []);
 
@@ -63,7 +63,7 @@ export const Main = ({ navigation, route }) => {
 		openPatient(item.patient, item.medicalCard, item.guidService, navigation)
 	}
 
-	const renderItem = ({ index, item }) => (<ScheduleElement item={item} onPress = {()=> onPressScheduleItem(item)}/>);
+	const renderItem = ({ index, item }) => (<ScheduleElement item={item} onPress={() => onPressScheduleItem(item)} />);
 
 	let doctorsFilter = Object.assign([], doctors);
 	doctorsFilter.unshift({ guid: 'all', name: 'Все' });
@@ -92,7 +92,7 @@ export const Main = ({ navigation, route }) => {
 				lightTheme
 				showLoading
 				inputContainerStyle={{ backgroundColor: "white", height: 25 }}
-				containerStyle={{ marginLeft: 5, backgroundColor: "white", height: 45, marginRight: 5 }}
+				containerStyle={{ marginBottom: 10, marginLeft: 5, backgroundColor: "white", height: 45, marginRight: 5 }}
 
 				loadingProps={{
 					animating: false,
@@ -102,7 +102,7 @@ export const Main = ({ navigation, route }) => {
 
 			{errorSchedule && <TextError textError={errorSchedule} />}
 
-			<View>
+			<View style={styles.flatList}>
 				<FlatList
 
 					data={doctorsSchedule.filter(item => useFilter(item))}
@@ -147,7 +147,7 @@ const styles = StyleSheet.create(
 			padding: 4
 		},
 		selectDoctorItem: {
-			backgroundColor: THEME.SELECT_COLOR,
+			backgroundColor: THEME.BUTTON_COLOR,
 			color: 'white',
 			borderWidth: 0
 		},
@@ -176,7 +176,14 @@ const styles = StyleSheet.create(
 			fontSize: 10,
 			fontFamily: 'Roboto',
 			fontWeight: "bold"
+		},
+
+		flatList: {
+
+
+			borderBottomWidth: 0.5
 		}
+
 	}
 )
 

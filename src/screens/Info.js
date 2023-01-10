@@ -40,7 +40,7 @@ export const Info = ({ navigation, route }) => {
         />
       </View>
 
-      <Text style={styles.textStyle}>Центр флебологии и лазерной хирургии г.Сочи</Text>
+      <Text style={styles.textStyle}>Офтальмологический центр Коновалова</Text>
       <Text style={{ marginTop: 2 }} >Версия  приложения: {DeviceInfo.getVersion()}</Text>
       <Text style={{ margin: 2 }}>API: {apiUrl}</Text>
 

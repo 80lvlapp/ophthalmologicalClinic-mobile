@@ -40,7 +40,6 @@ export const MedicalDocument = ({ navigation, route }) => {
 
         async function restoreTableValue() {
             let TableValueStorage = await AsyncStorage.getItem(inputKey);
-            TableValueStorage = null;
             if (TableValueStorage) {
                 setTableValue(JSON.parse(TableValueStorage));
             } else  {
@@ -60,7 +59,9 @@ export const MedicalDocument = ({ navigation, route }) => {
         
         setSaved(true);
         try {
-           const response = await saveMedicalDocument(id, curentGuidService, tableValue);
+           
+            const response = await saveMedicalDocument(id, curentGuidService, tableValue);
+            await AsyncStorage.removeItem(inputKey);
         } catch (error) {
         }
         setSaved(false);
@@ -90,7 +91,14 @@ export const MedicalDocument = ({ navigation, route }) => {
             <DataTable tableRowsData={tableRowsData} onChangeTextCell={onChangeTextCell} tableValue={tableValue} />
 
             <View style={styles.buttonSave}>
-                < Button loading={saved} title={"Сохранить"} onPress={() => { handlerSaveMedicalDocument() }} />
+                < Button 
+                
+                buttonStyle={{
+                    backgroundColor: THEME.BUTTON_COLOR,
+               
+
+                }}
+                loading={saved} title={"Сохранить"} onPress={() => { handlerSaveMedicalDocument() }} />
             </View>
 
         </View>
@@ -130,7 +138,7 @@ const styles = StyleSheet.create({
 
 
     selectSectionItem: {
-        backgroundColor: THEME.SELECT_COLOR,
+        backgroundColor: THEME.BUTTON_COLOR,
         color: 'white',
         borderWidth: 0
     },

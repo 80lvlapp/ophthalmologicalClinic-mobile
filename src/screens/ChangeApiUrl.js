@@ -49,7 +49,7 @@ export const ChangeApiUrl = ({ navigation }) => {
                 size="large"
                 color={THEME.BUTTON_COLOR} />)}
 
-            <Text style={styles.textStyle}>Центр флебологии и лазерной хирургии г.Сочи</Text>
+            <Text style={styles.textStyle}>Офтальмологический центр Коновалова</Text>
 
             <Image
                 source={start}
