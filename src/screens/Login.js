@@ -23,11 +23,11 @@ export const Login = ({ navigation, route }) => {
             <View style={styles.container}>
 
 
-                <TouchableOpacity style={{ paddingHorizontal: 1, marginTop: 1, zIndex: 1000, position: 'absolute', top: 10, right: 10}}>
+                <TouchableOpacity style={{ paddingHorizontal: 1, marginTop: 1, zIndex: 1000, position: 'absolute', top: 20, right: 20}}>
                     <IconAntDesign name='setting' onPress={() => navigation.navigate('ChangeApiUrl')} size={25} color={THEME.MAIN_COLOR} />
                 </TouchableOpacity>
 
-                <Text style={styles.textStyle}>Центр флебологии и лазерной хирургии г.Сочи</Text>
+                <Text style={styles.textStyle}>Офтальмологический центр Коновалова </Text>
 
                 <Image
                     source={start}
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        padding: 20
 
     },
     input: {

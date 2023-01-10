@@ -451,9 +451,8 @@ export const ReceptionState = ({ children }) => {
         }
     }
 
-    
-    const getDataMedicalDocumentData = async (guid) => {
-            const response = await authAxios.post('/?typerequest=getDataMedicalDocumentData', {guid:guid});
+    const getDataMedicalDocumentData = async (guidService) => {
+            const response = await authAxios.post('/?typerequest=getDataMedicalDocumentData', {guidService});
             return response;
     }
 
